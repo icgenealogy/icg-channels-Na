@@ -18,7 +18,7 @@ UNITS {
 PARAMETER {
         dt (ms)
 	v (mV)
-        ena (mV)
+        :ena (mV)
 	celsius 	(degC)
 	gnabar=.01 (mho/cm2)
 	vhalf=-50    (mV)
@@ -52,6 +52,7 @@ STATE {
 }
 
 ASSIGNED {
+        ena (mV)
 	Ir  (mA/cm2)
 	ina (mA/cm2)
 	inf

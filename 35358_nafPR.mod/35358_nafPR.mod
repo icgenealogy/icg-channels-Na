@@ -2,12 +2,19 @@
 
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
-NEURON { SUFFIX nafPR }
-NEURON {  USEION na WRITE ina }
-ASSIGNED { ina }
+NEURON {
+    SUFFIX nafPR
+}
+NEURON {
+    USEION na READ ena WRITE ina
+}
+ASSIGNED {
+    ina
+    ena (mV)
+}
 
 PARAMETER {
-	erev 		= 60.  (mV)
+	:erev 		= 60.  (mV)
 	gmax 		= 0.030    (mho/cm2)
 
         vrest           = -60.0
@@ -42,7 +49,7 @@ PARAMETER {
 
 NEURON {
 	RANGE gmax, g, i
-	GLOBAL erev, Inf, Tau, vrest, qq10
+	GLOBAL Inf, Tau, vrest, qq10
 } : end NEURON
 
 CONSTANT {
@@ -78,7 +85,7 @@ BREAKPOINT {
   mh(v)
   g = gmax * Inf[0]*Inf[0] * h
 
-  i = g*(v-erev) 
+  i = g*(v-ena) 
   ina=i
 } : end BREAKPOINT
 

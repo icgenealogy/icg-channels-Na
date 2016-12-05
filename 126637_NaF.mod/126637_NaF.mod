@@ -12,7 +12,7 @@ UNITS {
  
 NEURON {
         SUFFIX NaF
-	USEION na WRITE ina
+	USEION na READ ena WRITE ina
         RANGE  gnabar, gna, minf, hinf, mexp, hexp
 } 
  
@@ -23,7 +23,7 @@ PARAMETER {
         celsius = 37 (degC)
         dt (ms)
         gnabar	= 7.5 (mho/cm2)
-        ena	= 45 (mV)
+        :ena	= 45 (mV)
 	mon = 1
 	hon = 1
 }
@@ -33,6 +33,7 @@ STATE {
 }
  
 ASSIGNED {
+        ena (mV)
         ina (mA/cm2)
         gna minf hinf mexp hexp 
 }

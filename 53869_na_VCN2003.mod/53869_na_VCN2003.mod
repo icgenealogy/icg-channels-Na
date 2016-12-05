@@ -28,7 +28,7 @@ UNITS {
 
 PARAMETER {
 	gnabar	= 0.2	(mho/cm2) 
-	ena=55		(mV) 
+	:ena=55		(mV) 
 	gl= 4.0e-4	(mho/cm2)   
         el=-57		(mV)
 	celsius=22 		(degC)
@@ -42,6 +42,7 @@ STATE {
 }
 
 ASSIGNED {
+        ena (mV)
 	gna (mho/cm2)
 	ina	(mA/cm2)
 	il	(mA/cm2)

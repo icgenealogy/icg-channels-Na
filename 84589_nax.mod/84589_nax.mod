@@ -23,8 +23,8 @@ NEURON {
 }
 
 
-INCLUDE "inact_na_currs.inc"
+INCLUDE "custom_code/inc_files/84589_inact_na_currs.inc"
 
-INCLUDE "inact_gate_states.inc"
+INCLUDE "custom_code/inc_files/84589_nax_inact_gate_states.inc"
 
-INCLUDE "var_funcs.inc"
+INCLUDE "custom_code/inc_files/84589_var_funcs.inc"

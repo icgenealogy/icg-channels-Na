@@ -1,11 +1,16 @@
-NEURON { SUFFIX naf  }
+NEURON {
+    SUFFIX naf  }
   
-NEURON {  USEION na WRITE ina }
+NEURON {
+    USEION na READ ena WRITE ina }
 
-ASSIGNED { ina }
+ASSIGNED {
+    ina
+    ena (mV)
+}
 
 PARAMETER {
-	erev 		= 60       (mV)
+	:erev 		= 60       (mV)
 	gmax 		= 0.030     (umho)
         vrest           = 0     : added in with bills change to borg
 
@@ -39,9 +44,9 @@ PARAMETER {
 
 } : end PARAMETER
 
-INCLUDE "bg.inc"
+INCLUDE "custom_code/inc_files/7400_bg.inc"
 
-PROCEDURE iassign () { i = g*(v-erev) ina=i }
+PROCEDURE iassign () { i = g*(v-ena) ina=i }
 :**kdr
 :________________________________________________________________
 : Borg-Graham version of delayed rectifier

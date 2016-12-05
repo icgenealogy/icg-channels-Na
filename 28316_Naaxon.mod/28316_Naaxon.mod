@@ -58,7 +58,7 @@ PARAMETER {
         celsius = 24 (degC)
         dt (ms)
         gnaaxon = .0107 (mho/cm2)
-        ena = 90 (mV)
+        :ena = 90 (mV)
         gl = .00005 (mho/cm2)
         el = -70 (mV)
 }
@@ -68,6 +68,7 @@ STATE {
 }
  
 ASSIGNED {
+        ena (mV)
         ina (mA/cm2)
         il (mA/cm2)
         minf 

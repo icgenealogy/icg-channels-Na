@@ -16,7 +16,7 @@ NEURON {
 }
 
 PARAMETER { 
-	gbar = 0.0 	(mho/cm2)
+	gbar = 1.0 	(mho/cm2)
 	ena  = 45	(mV)
 	shm  = 1   (mV)  : 0!!!
 } 

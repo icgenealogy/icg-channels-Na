@@ -12,7 +12,11 @@ ICG Class | [Na](http://icg.neurotheory.ox.ac.uk/channels/2)
 
 This is a single channel model file that was originally part of a [published model on the ModelDB website](http://senselab.med.yale.edu/mModelDB/ShowModel.cshtml?model=147538).
 
+
 The file [147538\_na3s.mod](147538_na3s.mod) was extrated from [the ModelDB repository](http://senselab.med.yale.edu/ModelDB/ShowModel.cshtml?model=147538), and committed in its original form.
+
+The current version of the file was modified slighly for automatic evaluation by the [icg-nrn-sim](https://github.com/icgenealogy/icg-nrn-sim) tool. To find the original please check the git history.
+
 
 ## Usage
 

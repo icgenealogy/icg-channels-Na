@@ -41,9 +41,11 @@ UNITS {
  
 NEURON { 
     SUFFIX ichanWT2005 
-    USEION nat READ enat WRITE inat VALENCE 1
-    USEION kf READ ekf WRITE ikf  VALENCE 1
-    NONSPECIFIC_CURRENT il 
+    :USEION nat READ enat WRITE inat VALENCE 1
+    :USEION kf READ ekf WRITE ikf  VALENCE 1
+    :NONSPECIFIC_CURRENT il 
+    USEION na READ ena WRITE ina
+    USEION k READ ek WRITE ik
     RANGE gnat, gkf
     RANGE gnatbar, gkfbar
     RANGE gl, el
@@ -58,11 +60,11 @@ PARAMETER {
     
     celsius = 6.3 (degC)
     dt (ms) 
-    enat  (mV)
-    gnatbar (mho/cm2)   
-    ekf  (mV)
-    gkfbar (mho/cm2)
-    gl (mho/cm2)    
+    ena  (mV)
+    gnatbar = 1.0 (mho/cm2)   
+    ek  (mV)
+    gkfbar = 0.0 (mho/cm2)
+    gl = 0.0 (mho/cm2)    
     el (mV)
 }
 
@@ -72,8 +74,8 @@ ASSIGNED {
     v (mV) 
     gnat (mho/cm2) 
     gkf (mho/cm2)
-    inat (mA/cm2)
-    ikf (mA/cm2)
+    ina (mA/cm2)
+    ik (mA/cm2)
     il (mA/cm2)
     minf hinf sinf nfinf
     mtau (ms) htau (ms) stau (ms) nftau (ms)
@@ -89,9 +91,9 @@ STATE {
 BREAKPOINT {
     SOLVE states
     gnat = gnatbar*m*m*m*h*s  
-    inat = gnat*(v - enat)
+    ina = gnat*(v - ena)
     gkf = gkfbar*nf*nf*nf*nf
-    ikf = gkf*(v-ekf)
+    ik = gkf*(v-ek)
     il = gl*(v-el)
 }
 

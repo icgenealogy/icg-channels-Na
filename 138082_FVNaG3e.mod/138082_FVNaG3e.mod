@@ -15,7 +15,7 @@ UNITS {
 }
 
 PARAMETER {
-	gbar = 0			(pS/um2)
+	gbar = 1.0			(pS/um2)
 	a12 = 170			(/ms)
 	a21 = 1.6			(/ms)
 	a23 = 51			(/ms)

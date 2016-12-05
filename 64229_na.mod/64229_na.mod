@@ -1,8 +1,14 @@
-NEURON { SUFFIX na }
-NEURON { USEION na WRITE ina }
-ASSIGNED { ina }
+NEURON {
+    SUFFIX na
+}
+NEURON {
+    USEION na READ ena WRITE ina }
+ASSIGNED {
+    ina
+    ena (mV)
+}
 PARAMETER {
-	erev 		= 45        (mV)
+	:erev 		= 45        (mV)
 	gmax 		= 0.1     (umho)
         vrest           = 0
 
@@ -36,7 +42,7 @@ PARAMETER {
 } : end PARAMETER
 
 
-INCLUDE "bg_cvode.inc"
-PROCEDURE iassign() { i = g * (v - erev) ina=i }
+INCLUDE "custom_code/inc_files/64229_bg_cvode.inc"
+PROCEDURE iassign() { i = g * (v - ena) ina=i }
 
 :** nap

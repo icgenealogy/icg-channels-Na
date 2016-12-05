@@ -20,10 +20,10 @@ UNITS {
 ? interface 
 NEURON { 
 SUFFIX nad 
-USEION nat READ enat WRITE inat VALENCE 1
+USEION na READ ena WRITE ina
 RANGE gnat
 RANGE gnatbar
-RANGE inat
+:RANGE inat
 RANGE alphaD, betaD
 }
  
@@ -33,10 +33,10 @@ PARAMETER {
     v (mV) 
     celsius = 6.3 (degC)
     dt (ms) 
-    enat  (mV)
-	gnatbar (mho/cm2)
-    alphaD (/ms)
-    betaD (/ms)
+    ena  (mV)
+	gnatbar = 1.0 (mho/cm2)
+    alphaD = 1.0 (/ms)
+    betaD = 0.0 (/ms)
 }
  
 STATE {
@@ -67,7 +67,7 @@ CONSERVE O+C1+C2+C3+I+I1+I2+I3+ID+I1D+I2D+I3D = 1
 
 ASSIGNED {
         gnat (mho/cm2) 
-        inat (mA/cm2)
+        ina (mA/cm2)
         alpham (/ms)
         alphah (/ms)
         betam (/ms)
@@ -78,7 +78,7 @@ ASSIGNED {
 BREAKPOINT {
 	SOLVE scheme1 METHOD sparse
         gnat = gnatbar*O  
-        inat = gnat*(v - enat)
+        ina = gnat*(v - ena)
 }
  
 UNITSOFF

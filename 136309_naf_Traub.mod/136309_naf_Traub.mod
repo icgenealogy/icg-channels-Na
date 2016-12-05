@@ -20,7 +20,7 @@ NEURON {
 }
 PARAMETER { 
 	: putting as written fastNa_shift = 0: orig -3.5 (mV)
-	gbar = 0.0 	   (mho/cm2)
+	gbar = 1.0 	   (mho/cm2)
 	v (mV) ena 		   (mV)  
 } 
 ASSIGNED { 

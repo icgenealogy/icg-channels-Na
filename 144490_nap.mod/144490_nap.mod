@@ -18,7 +18,7 @@ PARAMETER { : parameters that can be entered when function is called in cell-set
     ena = 50        (mV) : Na reversal potential  (reset in cell-setup.hoc)
 	  K = 1           (mV)              : slope of steady state variable
     :	gnabar = 0.001e-2 (mho/cm2) : suggested conductance, 1 percent of the transient Na current
-	  gnabar = 0      (mho/cm2)          : initialized conductance
+	  gnabar = 1.0      (mho/cm2)          : initialized conductance
 	  vhalf  = -51.90 (mV)                : half potential
 }	
 

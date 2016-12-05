@@ -23,7 +23,7 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX NafOlmKop
-	USEION na WRITE ina
+	USEION na READ ena WRITE ina
 }
 	
 UNITS {
@@ -34,10 +34,11 @@ UNITS {
 
 PARAMETER {
     gna  = 30 (mS/cm2)
-    ena  = 90 (mV)
+    :ena  = 90 (mV)
 }
     
 ASSIGNED {
+    ena     (mV)
     v       (mV)
     ina     (mA/cm2)
     minf    (1)
@@ -80,4 +81,4 @@ PROCEDURE rates(v(mV)) { LOCAL am, bm, ah, bh
     taoh = 1./(ah+bh)
 }
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/139421_aux_fun.inc"

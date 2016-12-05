@@ -49,8 +49,8 @@ PARAMETER {
     bh2  = 1.33097e+1 (mV)
     
     gnabar = .12 (mho/cm2)	<0,1e9>
-    gkbar = .036 (mho/cm2)	<0,1e9>
-    gl = .0003 (mho/cm2)	      <0,1e9>
+    gkbar = 0.0 (mho/cm2)	<0,1e9>
+    gl = 0.0 (mho/cm2)	      <0,1e9>
     el = -80.0 (mV)
     vShift = 12 (mV) :shift to the right to account for Donnan potentials 
     vShift_inact = 0 (mV) :global inactivation shift to align with 8-state model

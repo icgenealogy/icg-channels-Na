@@ -5,8 +5,9 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX na
-	NONSPECIFIC_CURRENT i
-	RANGE i, Erev, gbar
+	:NONSPECIFIC_CURRENT i
+	USEION na READ ena WRITE ina
+        RANGE gbar
 	GLOBAL taum_min, tauh_min
 }
 
@@ -18,13 +19,14 @@ UNITS {
 
 PARAMETER {
 	gbar = 20172e-6	(S/cm2) < 0, 1e9 >
-	Erev = 50 (mV)
+	:Erev = 50 (mV)
 	taum_min = 0.05 (ms)
 	tauh_min = 0.3 (ms)
 }
 
 ASSIGNED {
-	i (mA/cm2)
+        ena (mV)
+	ina (mA/cm2)
 	v (mV)
 	g (S/cm2)
 	minf
@@ -38,7 +40,7 @@ STATE {	m h }
 BREAKPOINT {
 	SOLVE states METHOD cnexp
 	g = gbar * m^3 * h^2
-	i = g * (v - Erev)
+	ina = g * (v - ena)
 }
 
 INITIAL {

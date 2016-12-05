@@ -61,8 +61,8 @@ NEURON {
 PARAMETER {
 	speed 	= 5 	(1)     	<0,1e9>
         gnabar	= .035 	(mho/cm2)	<0,1e9>
-	gkbar 	= .009 	(mho/cm2)	<0,1e9>
-        gl	= .0001 (mho/cm2)	<0,1e9>
+	gkbar 	= 0.0 	(mho/cm2)	<0,1e9>
+        gl	= 0.0 (mho/cm2)	<0,1e9>
         el 	= -65 	(mV)
 }
   

@@ -5,7 +5,7 @@ TITLE na3
 
 NEURON {
 	SUFFIX NaM99SL
-	USEION na WRITE ina
+	USEION na READ ena WRITE ina
 	RANGE  gbar, ar2
 	GLOBAL minf, hinf, mtau, htau, sinf, taus,qinf, thinf
 }
@@ -54,6 +54,7 @@ UNITS {
 } 
 
 ASSIGNED {
+        ena             (mV)
 	ina 		(mA/cm2)
 	thegna		(mho/cm2)
 	minf 		hinf 		
@@ -67,7 +68,7 @@ STATE { m h s}
 BREAKPOINT {
         SOLVE states METHOD cnexp
         thegna = gbar*m*m*m*h*s
-	ina = thegna * (v - 55.0)
+	ina = thegna * (v - ena)
 } 
 
 INITIAL {

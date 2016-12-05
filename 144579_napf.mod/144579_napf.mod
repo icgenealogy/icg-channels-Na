@@ -28,7 +28,7 @@ PARAMETER {
 	b = 0 (1)
 	c = 0 (1)
 	d = 0 (1)
-	gbar = 0.0 	   (mho/cm2)
+	gbar = 1.0 	   (mho/cm2)
 	v (mV) ena 		   (mV)  
 } 
 ASSIGNED { 

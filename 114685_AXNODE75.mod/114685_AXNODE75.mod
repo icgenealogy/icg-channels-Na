@@ -10,12 +10,14 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
     SUFFIX axnode75
-    NONSPECIFIC_CURRENT ina
-    NONSPECIFIC_CURRENT inap
-    NONSPECIFIC_CURRENT ik
+    :NONSPECIFIC_CURRENT ina
+    :NONSPECIFIC_CURRENT inap
+    :NONSPECIFIC_CURRENT ik
+    USEION na READ ena WRITE ina
+    USEION k READ ek WRITE ik
     NONSPECIFIC_CURRENT il
     RANGE gnapbar, gnabar, gkbar, gl, ena, ek, el
-    RANGE mp_inf, m_inf, h_inf, s_inf
+    RANGE mp_inf, m_inf, h_inf, s_inf, inap
     RANGE tau_mp, tau_m, tau_h, tau_s
 }
 
@@ -25,12 +27,12 @@ UNITS {
 }
 
 PARAMETER {
-    gnapbar = 0.01  (mho/cm2)
+    gnapbar = 0.0  (mho/cm2)
     gnabar  = 3.0   (mho/cm2)
-    gkbar   = 0.08  (mho/cm2)
-    gl	    = 0.007 (mho/cm2)
-    ena     = 55.0  (mV)
-    ek      = -85.0 (mV)
+    gkbar   = 0.0  (mho/cm2)
+    gl	    = 0.00 (mho/cm2)
+    :ena     = 55.0  (mV)
+    :ek      = -85.0 (mV)
     el	    = -85.0 (mV)
     celsius	    (degC)
     dt              (ms)
@@ -68,6 +70,8 @@ STATE {
 }
 
 ASSIGNED {
+    ek (mV)
+    ena (mV)
     inap    (mA/cm2)
     ina     (mA/cm2)
     ik      (mA/cm2)

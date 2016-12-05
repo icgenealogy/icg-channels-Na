@@ -30,7 +30,7 @@ PARAMETER {
         dt		(ms)
         gnabar= 0.1	(mho/cm2)
         ena		(mV)
-        gkbar= 0.01	(mho/cm2)
+        gkbar= 0.0	(mho/cm2)
         ek		(mV)
         gl= 0		(mho/cm2)
         el		(mV)

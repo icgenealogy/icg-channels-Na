@@ -19,7 +19,7 @@ ENDCOMMENT
 NEURON {
 
 	SUFFIX nafpr
-	USEION na WRITE ina
+	USEION na READ ena WRITE ina
 	RANGE gna, ina
 }
 	
@@ -33,11 +33,11 @@ UNITS {
 PARAMETER {
 
     gna  = 30 (mS/cm2)
-    ena  = 55 (mV)
+    :ena  = 55 (mV)
 }
     
 ASSIGNED {
-
+    ena  (mV)
     v    (mV)
     ina  (mA/cm2)
     minf (1)
@@ -81,4 +81,4 @@ PROCEDURE rates(v(mV)) { LOCAL a, b
     tauh = 1.0/(a+b)
 }
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/139421_aux_fun.inc"

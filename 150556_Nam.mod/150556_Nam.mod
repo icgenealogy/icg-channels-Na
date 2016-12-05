@@ -20,7 +20,7 @@ UNITS {
  
 NEURON {
  	SUFFIX Nam
-	USEION na WRITE ina
+	USEION na READ ena WRITE ina
 	RANGE gnabar, gna, minf, hinf, ah, Bh
 }
  
@@ -28,7 +28,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
  
 PARAMETER {
   	
-	ena	= 55	(mV)
+	:ena	= 55	(mV)
 	gnabar	= 0.035 (mho/cm2) : 35mS
 	phi	= 5 < 0, 1e9 > : from delord 11/13/06 
 	Vam	= -28 :NOT the original value from wang and Buzsaki
@@ -47,6 +47,7 @@ STATE {
 }
  
 ASSIGNED {
+        ena (mV)
         v  (mV)
 	ina (mA/cm2)
 	celsius		(degC)

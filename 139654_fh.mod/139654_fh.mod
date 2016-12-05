@@ -29,7 +29,7 @@ UNITS {
 
 PARAMETER {
 	celsius (degC) : 14
-	gnabar = 0 (S/cm2)	<0,1e9>
+	gnabar = 1.0 (S/cm2)	<0,1e9>
     gl = 0 (S/cm2)	   <0,1e9>
     el = 0 (mV)
     vsh = -70 (mV)

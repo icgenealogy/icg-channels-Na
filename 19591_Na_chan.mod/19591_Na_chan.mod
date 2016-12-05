@@ -12,8 +12,9 @@ UNITS {
 NEURON {
         SUFFIX naf_chan
         RANGE gbar, i
-        NONSPECIFIC_CURRENT i
-        GLOBAL e, minf, hinf,
+        :NONSPECIFIC_CURRENT i
+        USEION na READ ena WRITE ina
+        GLOBAL minf, hinf,
                am, bm, cm, dm, taum_min,
                ah, bh, ch, dh, tauh_min
 }
@@ -23,7 +24,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
         v (mV)
         dt (ms)
-        e = 55 (mV)
+        :e = 55 (mV)
 
         gbar = 7.43e-2 (mho/cm2)
 
@@ -45,7 +46,8 @@ STATE {
 }
  
 ASSIGNED {
-        i (mA/cm2)
+        ena (mV)
+        ina (mA/cm2)
         minf hinf
 }
  
@@ -53,7 +55,7 @@ LOCAL mexp, hexp
  
 BREAKPOINT {
         SOLVE states
-        i = gbar*m*m*m*h*(v - e)
+        ina = gbar*m*m*m*h*(v - ena)
 }
  
 UNITSOFF

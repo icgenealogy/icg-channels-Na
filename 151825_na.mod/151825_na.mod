@@ -22,7 +22,7 @@ NEURON {
 }
 
 PARAMETER {
-	gbar = 0.0   	(pS/um2)	: 0.12 mho/cm2
+	gbar = 1.0   	(pS/um2)	: 0.12 mho/cm2
 	vshiftm =-5	(mV)		: activation voltage shift
 	vshifth =-10  (mV)		: inactivation voltage shift 
 	taum_scale= 1

@@ -27,11 +27,11 @@ PARAMETER {
 	celsius = 37	(degC)
 	dt (ms)
 	gnabar=.20 (mho/cm2)
-	gkbar=.12 (mho/cm2)
-	gkbar2=.12 (mho/cm2)
-	gl=.0001 (mho/cm2)
-	ena = 40 (mV)
-	ek = -80 (mV)
+	gkbar=0.0 (mho/cm2)
+	gkbar2=0.0 (mho/cm2)
+	gl=0.0 (mho/cm2)
+	:ena = 40 (mV)
+	:ek = -80 (mV)
 	el = -70.0 (mV)	: steady state at v = -65 mV
 	taum=0.05
 	tauh=0.5
@@ -50,6 +50,8 @@ STATE {
 	m h n s n2
 }
 ASSIGNED {
+	ek (mV)
+	ena (mV)
 	ina (mA/cm2)
 	ik (mA/cm2)
 	il (mA/cm2)

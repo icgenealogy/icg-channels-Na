@@ -40,8 +40,8 @@ PARAMETER {   : parameters that can be entered when function is called in cell-s
         vvs  = 2     (mV)       :slope for "s" attenuation system
         vhalfr = -60 (mV)       :half potential for "s" attenuation system
         vvh=-58		(mV) 
-        gnabar = 0   (mho/cm2)  :initialized conductances
-	gkbar = 0    (mho/cm2)  :actual values set in hoc code
+        gnabar = 1.0   (mho/cm2)  :initialized conductances
+	gkbar = 0.0    (mho/cm2)  :actual values set in hoc code
 	gl = 0       (mho/cm2)  : keep this to zero if using the NEURON pas mechanism
 	el = -70.0   (mV)       :steady state 
 

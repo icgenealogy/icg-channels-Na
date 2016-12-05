@@ -17,11 +17,13 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
 	SUFFIX axnode
-	NONSPECIFIC_CURRENT ina
-	NONSPECIFIC_CURRENT inap
-	NONSPECIFIC_CURRENT iks
-	NONSPECIFIC_CURRENT ikf
-	NONSPECIFIC_CURRENT il
+	:NONSPECIFIC_CURRENT ina
+	:NONSPECIFIC_CURRENT inap
+	:NONSPECIFIC_CURRENT iks
+	:NONSPECIFIC_CURRENT ikf
+	:NONSPECIFIC_CURRENT il
+	USEION na READ ena WRITE ina	
+	USEION k READ ek WRITE ik
 	RANGE gnafbar, gnapbar, gksbar, gkfbar, gl, ena, ek, el
 	RANGE m_inf, h_inf, p_inf, s_inf, n_inf
 	RANGE tau_m, tau_h, tau_p, tau_s, tau_n
@@ -35,11 +37,11 @@ UNITS {
 
 PARAMETER {
 
-	gnabar = 3.0	(mho/cm2)   :3.0
+	gnabar = 0.0	(mho/cm2)   :3.0
 	gnapbar	= 0.01	(mho/cm2)
-	gksbar   = 0.08 	(mho/cm2) :0.08
-	gkfbar = 0.02 :0.02-0.04
-	gl	= 0.007 (mho/cm2)
+	gksbar   = 0.0 	(mho/cm2) :0.08
+	gkfbar = 0.0 :0.02-0.04
+	gl	= 0.00 (mho/cm2)
 	ena= 50.0  (mV)  :50
 	ek = -90.0 (mV)
 	el	= -90.0 (mV)
@@ -58,6 +60,7 @@ ASSIGNED {
 	inap	(mA/cm2)
 	iks      (mA/cm2)
 	ikf (mA/cm2)
+	ik (mA/cm2)
 	il      (mA/cm2)
 	m_inf
 	h_inf
@@ -73,10 +76,12 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ina = gnabar * m*m*m*h * (v - ena)
+	:ina = gnabar * m*m*m*h * (v - ena)
 	inap = gnapbar * p*p*p * (v - ena)
+	ina = inap
 	iks   = gksbar * s* (v - ek)
 	ikf = gkfbar*n*n*n*n*(v-ek)
+	ik = ikf
 	il   = gl * (v - el)
 }
 

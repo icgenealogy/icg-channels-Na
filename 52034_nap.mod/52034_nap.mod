@@ -1,7 +1,7 @@
 : "create" (channel suffix) (ion) (mod file)
 
 PARAMETER {
-	erev 		= 45        (mV)
+	:erev 		= 45        (mV)
 	gmax 		= 0.1     (umho)
 
 : ? Cable uses gchanbar in S/cm2 ?
@@ -37,7 +37,7 @@ PARAMETER {
 } : end PARAMETER
 
 
-PROCEDURE iassign() { i = g * (v - erev) ina=i }
+PROCEDURE iassign() { i = g * (v - ena) ina=i }
 
 TITLE Borg-Graham Channel Model
 
@@ -79,11 +79,11 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
 	SUFFIX nap
-	USEION na WRITE ina
-	USEION k WRITE ik
-	USEION ca READ cao,cai  WRITE ica
+	USEION na READ ena WRITE ina
+	:USEION k WRITE ik
+	:USEION ca READ cao,cai  WRITE ica
 	RANGE gmax, g, i, mbaserate
-	GLOBAL erev, Inf, Tau, Mult, Add, vmin, vmax
+	GLOBAL Inf, Tau, Mult, Add, vmin, vmax
 } : end NEURON
 
 CONSTANT {
@@ -102,7 +102,7 @@ UNITS {
 COMMENT
 ** Parameter values should come from files specific to particular channels
 PARAMETER {
-	erev 		= 0    (mV)
+	:erev 		= 0    (mV)
 	gmax 		= 0    (mho/cm^2)
 
 	mvalence 	= 0
@@ -135,11 +135,12 @@ PARAMETER {
 } : end PARAMETER
 ENDCOMMENT
 
-ASSIGNED {
+ASSIGNED { 
+        ena (mV)
 	i (mA/cm^2)		
-	ica (mA/cm^2)
+	:ica (mA/cm^2)
 	ina (mA/cm^2)		
-	ik  (mA/cm^2)		
+	:ik  (mA/cm^2)		
 	g (mho/cm^2)
 	Inf[2]		: 0 = m and 1 = h
 	Tau[2]		: 0 = m and 1 = h

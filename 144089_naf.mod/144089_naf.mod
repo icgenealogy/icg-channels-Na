@@ -20,7 +20,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
 	v (mV)
 	dt (ms)
-	gnafbar	= 0 (mho/cm2)
+	gnafbar	= 1.0 (mho/cm2)
 	:gnafbar= 0.086 (mho/cm2) <0,1e9>
 	ena = 55 (mV)
 	

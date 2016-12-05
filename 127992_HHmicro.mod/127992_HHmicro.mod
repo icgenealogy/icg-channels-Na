@@ -42,8 +42,8 @@ NEURON {
 
 PARAMETER {
     gnabar = 0.12   (S/cm2)     : maximum sodium conductance
-    gkbar  = 0.036  (S/cm2)     : maximum potassium conductance
-    gl     = 0.0003 (S/cm2)     : maximum leakage conductance
+    gkbar  = 0.0  (S/cm2)     : maximum potassium conductance
+    gl     = 0.0 (S/cm2)     : maximum leakage conductance
     el       = -54.3 (mV)       : leakage reversal potential
     
     gamma_na = 10  (pS)		: single channel sodium conductance

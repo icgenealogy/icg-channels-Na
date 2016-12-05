@@ -17,7 +17,7 @@ NEURON {
 	RANGE gbar, ina, m, h, df, am, bm, ah, bh
 }
 PARAMETER { 
-	gbar = 0.0 	   (mho/cm2)
+	gbar = 1.0 	   (mho/cm2)
 	v (mV) ena 		   (mV)  
 } 
 ASSIGNED { 

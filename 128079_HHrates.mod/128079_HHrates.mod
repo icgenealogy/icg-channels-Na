@@ -77,8 +77,8 @@ KINETIC kin {
     CONSERVE c1 + c2 + c3 + i1 + i2 + i3 + i4 + o = 1
 }
 
-FUNCTION_TABLE tau1(v(mV)) (ms)
-FUNCTION_TABLE tau2(v(mV)) (ms)
+:FUNCTION_TABLE tau1(v(mV)) (ms)
+:FUNCTION_TABLE tau2(v(mV)) (ms)
 
 FUNCTION my_exp(x) {   :Non-overflowing exp
     if (x>700) {

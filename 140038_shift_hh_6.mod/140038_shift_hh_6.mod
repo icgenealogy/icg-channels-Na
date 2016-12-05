@@ -23,8 +23,8 @@ NEURON {
 }
  
 PARAMETER {
-        gnabar = 0 (S/cm2)	<0,1e9>
-        gkbar = 0 (S/cm2)	<0,1e9>
+        gnabar = 1.0 (S/cm2)	<0,1e9>
+        gkbar = 0.0 (S/cm2)	<0,1e9>
         gl = 0 (S/cm2)	<0,1e9>
         el = 0 (mV)
 }

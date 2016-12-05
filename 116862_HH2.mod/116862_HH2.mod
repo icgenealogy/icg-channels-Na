@@ -34,7 +34,7 @@ UNITS {
 
 PARAMETER {
   gnabar  = .003  (mho/cm2)
-  gkbar   = .005  (mho/cm2)
+  gkbar   = 0.0  (mho/cm2)
 
   ena        (mV)
   ek        (mV)

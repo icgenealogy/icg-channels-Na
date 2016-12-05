@@ -43,8 +43,8 @@ PARAMETER {                     :parameters that can be entered when function is
     :	gnabar = 0.2 (mho/cm2)  :suggested conductance values
     :	gkbar = 0.12 (mho/cm2)
     :	gl = 0.0001  (mho/cm2)
-    gnabar = 0   (mho/cm2)  :initialized conductances
-	  gkbar = 0    (mho/cm2)  :actual values set in cell-setup.hoc
+    gnabar = 1.0   (mho/cm2)  :initialized conductances
+	  gkbar = 0.0    (mho/cm2)  :actual values set in cell-setup.hoc
 	  gl = 0       (mho/cm2)
 	  ena = 60     (mV)       :Na reversal potential (also reset in
 	  ek = -77     (mV)       :K reversal potential  cell-setup.hoc)

@@ -3,8 +3,8 @@
 
 NEURON {
 	SUFFIX Nap
-	USEION na WRITE ina
-	RANGE gNapbar, gna, ena
+	USEION na READ ena WRITE ina
+	RANGE gNapbar, gna
 }
 
 UNITS {
@@ -14,10 +14,11 @@ UNITS {
 
 PARAMETER {
 	gNapbar= 0.0022 (mho/cm2) <0,1e9>
-	ena = 55 (mV)
+	:ena = 55 (mV)
 }
 
 ASSIGNED {
+        ena (mV)
         v (mV)
 	ina (mA/cm2)
 	gna (mho/cm2)

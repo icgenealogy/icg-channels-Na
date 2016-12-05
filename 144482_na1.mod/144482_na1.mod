@@ -32,7 +32,7 @@ NEURON {
 }
 
 PARAMETER {
-	gbar  	(pS/um2)	: 0.12 mho/cm2     (1000)
+	gbar = 1.0  	(pS/um2)	: 0.12 mho/cm2     (1000)
 	vshift = -3.5 	(mV)		: voltage shift (affects all), changed to obtain AP in spines (-10)
 								
 	tha  = -50	(mV)		: v 1/2 for act		(-42)

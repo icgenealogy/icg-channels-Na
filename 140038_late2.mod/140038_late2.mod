@@ -14,7 +14,7 @@ NEURON {
 }
  
 PARAMETER {
-        gnabar = 0 (S/cm2)	<0,1e9>              
+        gnabar = 1.0 (S/cm2)	<0,1e9>              
 }
  
 STATE {

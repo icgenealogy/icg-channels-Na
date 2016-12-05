@@ -20,7 +20,7 @@ NEURON {
         SUFFIX HH
         USEION na READ ena WRITE ina
         USEION k READ ek WRITE ik
-        NONSPECIFIC_CURRENT il
+        :NONSPECIFIC_CURRENT il
         RANGE gnabar,gkbar,gl,el,m_inf,h_inf,n_inf,tau_m,tau_n,tau_h,ina,ik 
 }
  
@@ -28,12 +28,12 @@ PARAMETER {
         v		(mV)
         celsius		(degC)
         dt		(ms)
-        gnabar= 0.1	(mho/cm2)
+        gnabar= 0.1	(mho/cm2) : 0.1
         ena		(mV)
-        gkbar= 0.01	(mho/cm2)
+        gkbar= 0.0	(mho/cm2) : 0.01
         ek		(mV)
-        gl= 0		(mho/cm2)
-        el		(mV)
+        :gl= 0		(mho/cm2)
+        :el		(mV)
 }
  
 STATE {
@@ -43,7 +43,7 @@ STATE {
 ASSIGNED {
         ina	(mA/cm2)
         ik	(mA/cm2)
-        il	(mA/cm2)
+        :il	(mA/cm2)
         m_inf h_inf n_inf tau_m tau_h tau_n
 	tadj
 }
@@ -52,7 +52,7 @@ BREAKPOINT {
         SOLVE states
         ina = gnabar * m*m*m*h * (v - ena)
         ik = gkbar * n*n*n*n * (v - ek)      
-        il = gl * (v-el)
+        :il = gl * (v-el)
 }
  
 UNITSOFF
@@ -72,8 +72,8 @@ PROCEDURE states() {
 }
  
 PROCEDURE rates(v) { LOCAL alpha, beta, q10, tinc
-        TABLE m_inf, tau_m, h_inf, tau_h, n_inf, tau_n DEPEND dt, 
-	      celsius FROM -100 TO 100 WITH 200
+        :TABLE m_inf, tau_m, h_inf, tau_h, n_inf, tau_n DEPEND dt, 
+	:      celsius FROM -100 TO 100 WITH 200
 	:"m" sodium activation system
           alpha = .091 * vtrap(v+38,5)
           beta =  .062 * vtrap(-(v+38),5) 

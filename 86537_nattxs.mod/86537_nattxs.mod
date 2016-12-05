@@ -6,8 +6,9 @@
 
 NEURON {
 	SUFFIX nattxs
-	NONSPECIFIC_CURRENT i
-	RANGE gbar, ena, m, h, tau_m, tau_h
+	:NONSPECIFIC_CURRENT i
+	USEION na READ ena WRITE ina
+        RANGE gbar, m, h, tau_m, tau_h
 }
 
 UNITS {
@@ -18,7 +19,7 @@ UNITS {
 
 PARAMETER {
 	gbar = 0.035135 (S/cm2)
-	ena=62.94 (mV)
+	:ena=62.94 (mV)
 
 : second commented values are those used in Baker '05
 	A_am = 11.49 (/ms)  : 17.235 (/ms) : A for alpha m
@@ -39,8 +40,9 @@ PARAMETER {
 }
 
 ASSIGNED {
+        ena (mV)
 	v	(mV) : NEURON provides this
-	i	(mA/cm2)
+	ina	(mA/cm2)
 	g	(S/cm2)
 	tau_h	(ms)
 	tau_m	(ms)
@@ -53,7 +55,7 @@ STATE { m h }
 BREAKPOINT {
 	SOLVE states METHOD cnexp
 	g = gbar * m^3 * h
-	i = g * (v-ena)
+	ina = g * (v-ena)
 }
 
 INITIAL {

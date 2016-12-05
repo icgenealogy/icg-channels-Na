@@ -7,7 +7,7 @@ ENDCOMMENT
 NEURON {
 
 	SUFFIX naf
-	USEION na WRITE ina
+	USEION na READ ena WRITE ina
 	RANGE gnabar, ina
 }
 	
@@ -21,11 +21,11 @@ UNITS {
 PARAMETER {
 
     gnabar  = 30 (mS/cm2)
-    ena  = 55 (mV)
+    :ena  = 55 (mV)
 }
     
 ASSIGNED {
-
+    ena (mV)
     v    (mV)
     ina  (mA/cm2)
     minf (1)

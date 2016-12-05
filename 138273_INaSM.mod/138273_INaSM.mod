@@ -13,7 +13,7 @@ UNITS {
 }
 
 PARAMETER {
-	gnamax=0 (mho/cm2)
+	gnamax=1.0 (mho/cm2)
 }
 
 ASSIGNED {

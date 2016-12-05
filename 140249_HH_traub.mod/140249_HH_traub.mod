@@ -34,9 +34,9 @@ UNITS {
 
 PARAMETER {
 	gnabar  = .003  (mho/cm2)
-	gkbar   = .005  (mho/cm2)
-	ena     = 50    (mV)
-	ek      = -90   (mV)
+	gkbar   = 0.0  (mho/cm2)
+	:ena     = 50    (mV)
+	:ek      = -90   (mV)
 	celsius = 36    (degC)
 :	dt              (ms)
 	v               (mV)
@@ -49,6 +49,8 @@ STATE {
 }
 
 ASSIGNED {
+	ena (mV)
+	ek (mV)
 	ina     (mA/cm2)
 	ik      (mA/cm2)
 	il      (mA/cm2)

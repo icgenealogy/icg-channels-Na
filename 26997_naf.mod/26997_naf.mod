@@ -1,10 +1,17 @@
 : $Id: naf.mod,v 1.7 2003/07/29 21:23:39 billl Exp $
 
-NEURON { SUFFIX naf }
-NEURON {  USEION na WRITE ina }
-ASSIGNED { ina }
+NEURON {
+    SUFFIX naf
+}
+NEURON {
+    USEION na READ ena WRITE ina
+}
+ASSIGNED {
+    ina
+    ena (mV)
+}
 PARAMETER {
-	erev 		= 55.  (mV)
+	:erev 		= 55.  (mV)
 	gmax 		= 0.035    (mho/cm2)
         vrest           = 0.
 
@@ -60,7 +67,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
 	RANGE gmax, g, i
-	GLOBAL erev, Inf, Tau, vmin, vmax, vrest, qq10
+	GLOBAL Inf, Tau, vmin, vmax, vrest, qq10
 } : end NEURON
 
 CONSTANT {
@@ -96,7 +103,7 @@ BREAKPOINT {
   mh(v)
   g = gmax * Inf[0]*Inf[0]*Inf[0] * h
 
-  i = g*(v-erev) 
+  i = g*(v-ena) 
   ina=i
 } : end BREAKPOINT
 

@@ -25,7 +25,7 @@ PARAMETER {
 	shift_mnaf_init =-3 (mV) : these two variable names suggest where they came from
 	shift_mnaf_run = -2.5 (mV) : in the fortran code
 	shift_hnaf = -7.0 (mV)
-	gbar = 0.0 	   (mho/cm2)
+	gbar = 1.0 	   (mho/cm2)
 	v (mV) ena 		   (mV)  
 } 
 ASSIGNED { 

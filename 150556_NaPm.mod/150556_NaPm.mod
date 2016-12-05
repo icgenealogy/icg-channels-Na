@@ -15,7 +15,7 @@ UNITS {
  
 NEURON {
  	SUFFIX NaPm
-	USEION na WRITE ina
+	USEION na READ ena WRITE ina
 	RANGE gnapmbar, gnapm, minf, mtau
 }
  
@@ -23,7 +23,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
  
 PARAMETER {
   	
-	ena	= 45	(mV)
+	:ena	= 45	(mV)
 	gnapmbar= 0.00002 (mho/cm2) :0.02
 	Etemp	= 22	:delord correspondence 11/15/06
 	Vsm	= -47.8
@@ -38,6 +38,7 @@ STATE {
 }
  
 ASSIGNED {
+        ena (mV)
 	v  (mV)
         ina (mA/cm2)
 	celsius		(degC)

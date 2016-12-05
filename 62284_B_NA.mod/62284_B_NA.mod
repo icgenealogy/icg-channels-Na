@@ -20,7 +20,7 @@ PARAMETER {
 	v (mV)
 	celsius = 6.3	(degC)
 	dt (ms)
-	gnabar=0 (mho/cm2) <0,1e9>
+	gnabar=1.0 (mho/cm2) <0,1e9>
 	ena = 53 (mV)
 	alpha_shift = 0 (mV)
 	beta_shift = 0 (mV)

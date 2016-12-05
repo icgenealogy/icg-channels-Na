@@ -57,8 +57,8 @@ NEURON {
  
 PARAMETER {
         gnabar	= .055 		(mho/cm2)	<0,1e9>
-        gkbar 	= .015 		(mho/cm2)	<0,1e9>
-        gl	= .00005 	(mho/cm2)	<0,1e9>
+        gkbar 	= 0.0 		(mho/cm2)	<0,1e9>
+        gl	= 0.0 	(mho/cm2)	<0,1e9>
         el 	= -70 		(mV)
 }
  

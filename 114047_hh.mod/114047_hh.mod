@@ -25,9 +25,9 @@ PARAMETER {
         celsius = 5 (degC)
         dt (ms)
         gnabar = .184 (mho/cm2)
-        ena = 55 (mV)
-        gkbar = .14 (mho/cm2)
-        ek = -90 (mV)
+        :ena = 55 (mV)
+        gkbar = 0.0 (mho/cm2)
+        :ek = -90 (mV)
 }
  
 STATE {
@@ -35,6 +35,8 @@ STATE {
 }
  
 ASSIGNED {
+	ena (mV)
+	ek (mV)
         ina (mA/cm2)
         ik (mA/cm2)
         minf hinf ninf mexp hexp nexp

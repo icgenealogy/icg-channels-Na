@@ -4,18 +4,20 @@ COMMENT
     modified for Neuron by FE GANNIER
 	francois.gannier@univ-tours.fr (University of TOURS)
 ENDCOMMENT
-INCLUDE "Unit.inc"
-INCLUDE "Volume.inc"
+INCLUDE "custom_code/inc_files/144520_Unit.inc"
+INCLUDE "custom_code/inc_files/144520_Volume.inc"
 NEURON {
 	SUFFIX INaf
 	USEION na READ nao, nai, ena WRITE ina
-	USEION k READ ko, ki
+	:USEION k READ ko, ki
 
 	RANGE Emh, g, ina, m_a, m_b, h_a, h_b, minf, mtau, hinf, htau
 }
 
 PARAMETER {
 	g = 750		(uS)
+	ko = 3.3152396 (mM)
+	ki = 85.0 (mM)
 }
 
 STATE { : m, h
@@ -37,8 +39,6 @@ ASSIGNED {
 	h_a (/ms)
 	h_b  (/ms)
 	
-	ko (mM)
-	ki (mM)
 	nai (mM)
 	nao (mM)
 }

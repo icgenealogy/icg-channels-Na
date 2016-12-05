@@ -1,9 +1,15 @@
-NEURON { SUFFIX nafRT03 }
-NEURON {  USEION na READ ena WRITE ina }
-ASSIGNED { ina }
+NEURON {
+    SUFFIX nafRT03
+}
+NEURON {
+    USEION na READ ena WRITE ina }
+ASSIGNED {
+    ina
+    ena (mV)
+}
 
 PARAMETER {
-	erev 		= 50    (mV)
+	:erev 		= 50    (mV)
 	gmax 		= 0.4  (S/cm2)
         vrest           = 0    (mV)
 
@@ -17,10 +23,10 @@ PARAMETER {
 	hkconst 	= 10.7
 	hq10		= 1
 	hexp 		= 1
-        ena
+        :ena
 } : end PARAMETER
 
-INCLUDE "boltz_cvode.inc"
+INCLUDE "custom_code/inc_files/64229_boltz_cvode.inc"
 
 FUNCTION settau(j,v) {
   if (j==0) { : m

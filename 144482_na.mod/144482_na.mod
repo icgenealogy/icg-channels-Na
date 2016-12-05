@@ -20,7 +20,7 @@ NEURON {
 }
 PARAMETER { 
 	fastNashift2 = -17 (mV) : changed from -3.5
-	gbar = 0.0 	   (mho/cm2)
+	gbar = 1.0 	   (mho/cm2)
 	v ena 		   (mV)  
 } 
 ASSIGNED { 

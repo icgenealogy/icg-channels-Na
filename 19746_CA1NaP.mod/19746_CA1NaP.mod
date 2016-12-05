@@ -14,8 +14,8 @@ UNITS {
  
 NEURON {
         SUFFIX CA1NaP
-        USEION na WRITE ina
-        RANGE gnaP, ina, ena
+        USEION na READ ena WRITE ina
+        RANGE gnaP
         GLOBAL mPinf, mPexp
 }
  
@@ -25,7 +25,7 @@ PARAMETER {
         v (mV)
         dt (ms)
         gnaP = 0.00017 (mho/cm2)
-        ena = 65 (mV)
+        :ena = 65 (mV)
         vhalf = -49 (mV)
 }
  
@@ -34,6 +34,7 @@ STATE {
 }
  
 ASSIGNED {
+        ena (mV)
         ina (mA/cm2)
         mPinf mPexp
 }
@@ -58,7 +59,7 @@ PROCEDURE states() {  :Computes state variable mP
 PROCEDURE rates(v) {  :Computes rate and other constants at current v.
                       :Call once from HOC to initialize "inf" at resting v.
         LOCAL alpha, beta
-        TABLE mPinf, mPexp DEPEND dt FROM -100 TO 50 WITH 150
+        :TABLE mPinf, mPexp DEPEND dt FROM -100 TO 50 WITH 150
                 :"m" sodium activation system
         alpha = -1.74*(v-11)/(exp(-(v-11)/12.94)-1)
         beta = 0.06*(v-5.9)/(exp((v-5.9)/4.47)-1)

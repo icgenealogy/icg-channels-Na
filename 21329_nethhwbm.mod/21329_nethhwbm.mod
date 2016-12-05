@@ -52,7 +52,9 @@ UNITS {
 
 NEURON {
         SUFFIX hh_wbm
-        NONSPECIFIC_CURRENT ina,ik,il
+        :NONSPECIFIC_CURRENT ina,ik,il
+	USEION na READ ena WRITE ina
+	USEION k READ ek WRITE ik
 
         RANGE gnabar,gna,egna,m, gkbar,gk,egk, gl,el
 	GLOBAL hinf, ninf, htau, ntau
@@ -61,10 +63,10 @@ NEURON {
  
 PARAMETER {
         gnabar = .035 (mho/cm2)	<0,1e9>
-	egna	= 55 (mV)	
-        gkbar = .009 (mho/cm2)	<0,1e9>
-	egk	= -90 (mV)	
-        gl = .0001 (mho/cm2)	<0,1e9>
+	:egna	= 55 (mV)	
+        gkbar = 0.0 (mho/cm2)	<0,1e9>
+	:egk	= -90 (mV)	
+        gl = 0.0 (mho/cm2)	<0,1e9>
         el = -65 (mV)
 	
 }
@@ -76,6 +78,9 @@ STATE {
 ASSIGNED {
         v (mV)
 	celsius (degC)
+
+	ena (mV)
+	ek (mV)
 
 	gna (mho/cm2)
         ina (mA/cm2)
@@ -93,9 +98,9 @@ BREAKPOINT {
         SOLVE states METHOD cnexp
 	m = minf
         gna = gnabar*m*m*m*h
-	ina = gna*(v - egna)
+	ina = gna*(v - ena)
         gk = gkbar*n*n*n*n
-	ik = gk*(v - egk)      
+	ik = gk*(v - ek)      
         il = gl*(v - el)
 }
  

@@ -42,8 +42,8 @@ PARAMETER {   : parameters that can be entered when function is called in cell-s
 :	gnabar = 0.2 (mho/cm2)  :suggested conductance values
 :	gkbar = 0.12 (mho/cm2)
 :	gl = 0.0001  (mho/cm2)
-        gnabar = 0   (mho/cm2)  :initialized conductances
-	gkbar = 0    (mho/cm2)  :actual values set in cell-setup.hoc
+        gnabar = 1.0   (mho/cm2)  :initialized conductances
+	gkbar = 0.0    (mho/cm2)  :actual values set in cell-setup.hoc
 	gl = 0       (mho/cm2)
 	el = -70.0   (mV)       :steady state 
 }

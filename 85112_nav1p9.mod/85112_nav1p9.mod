@@ -3,8 +3,9 @@
 
 NEURON {
 	SUFFIX nav1p9
-	NONSPECIFIC_CURRENT i
-	RANGE gbar, ena
+	:NONSPECIFIC_CURRENT i
+	USEION na READ ena WRITE ina
+        RANGE gbar
 }
 
 UNITS {
@@ -15,7 +16,7 @@ UNITS {
 
 PARAMETER {
 	gbar = 10e-6 : =100e-9/(100e-12*1e8) (S/cm2) : 100(nS)/100(um)^2
-	ena=79.6 (mV)
+	:ena=79.6 (mV)
 
 	A_am9 = 1.548 (/ms) : A for alpha m(9 etc ...)
 	B_am9 = -11.01 (mV)
@@ -35,8 +36,9 @@ PARAMETER {
 }
 
 ASSIGNED {
+        ena (mV)
 	v	(mV) : NEURON provides this
-	i	(mA/cm2)
+	ina	(mA/cm2)
 	g	(S/cm2)
 	tau_h	(ms)
 	tau_m	(ms)
@@ -49,7 +51,7 @@ STATE { m h }
 BREAKPOINT {
 	SOLVE states METHOD cnexp
 	g = gbar * m * h
-	i = g * (v-ena)
+	ina = g * (v-ena)
 }
 
 INITIAL {

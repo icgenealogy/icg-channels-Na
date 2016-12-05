@@ -19,7 +19,7 @@ NEURON {
 }
 
 PARAMETER { 
-	gbar = 0.0 	(pS/um2)
+	gbar = 1.0 	(pS/um2)
 	vshift = 0
 	v ena 		(mV)  
 } 

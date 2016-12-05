@@ -24,16 +24,16 @@ NEURON {
         SUFFIX hh_Cs_scaled
         USEION na READ ena WRITE ina
         USEION k READ ek WRITE ik
-        NONSPECIFIC_CURRENT il
+        :NONSPECIFIC_CURRENT il
         RANGE gnabar, gkbar, gl, el, gna, gk
         GLOBAL minf, hinf, ninf, mtau, htau, ntau
 }
  
 PARAMETER {
-        gnabar = .0 (S/cm2)	<0,1e9>
-        gkbar = 0 (S/cm2)	<0,1e9>
-        gl = 0 (S/cm2)	<0,1e9>
-        el = -54.3 (mV)
+        gnabar = 1.0 (S/cm2)	<0,1e9>
+        gkbar = 0.0 (S/cm2)	<0,1e9>
+        :gl = 0 (S/cm2)	<0,1e9>
+        :el = -54.3 (mV)
 }
  
 STATE {
@@ -50,7 +50,7 @@ ASSIGNED {
 	gk (S/cm2)
         ina (mA/cm2)
         ik (mA/cm2)
-        il (mA/cm2)
+        :il (mA/cm2)
         minf hinf ninf
 	mtau (ms) htau (ms) ntau (ms)
 }
@@ -64,7 +64,7 @@ BREAKPOINT {
 	ina = gna*(v - ena)
         gk = gkbar*n*n*n*n
 	ik = gk*(v - ek)      
-        il = gl*(v - el)
+        :il = gl*(v - el)
 }
  
  

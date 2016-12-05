@@ -23,7 +23,7 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX NafPyrKop
-	USEION na WRITE ina
+	USEION na READ ena WRITE ina
 	RANGE  bk, gmax, taom, taoh, taoi, minf, hinf, iinf
 }
 	
@@ -35,11 +35,12 @@ UNITS {
 
 PARAMETER {
     gmax = 32.0 (mS/cm2)
-    ena  = 55.0 (mV)
+    :ena  = 55.0 (mV)
     bk   =  0.0  (1)
 }
     
 ASSIGNED {
+    ena     (mV)
     v       (mV)
     ina     (mA/cm2)
     minf    (1)
@@ -91,4 +92,4 @@ PROCEDURE rates(v(mV)) { LOCAL am, bm, ah, bh, ai, bi
     iinf = (1.0+bk*exp((v+60.0)/2.0(mV))) / (1.0+exp((v+60.0)/2.0(mV)))
 }
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/139421_aux_fun.inc"

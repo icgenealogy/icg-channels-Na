@@ -38,7 +38,7 @@ UNITS {
 
 PARAMETER { 
 	fastNashift = 0	(mV)	: -3.5 (mV)
-	gnabar = 0.0	(mho/cm2)
+	gnabar = 1.0	(mho/cm2)
 	gkbar = 0.0	(mho/cm2)
 	am = 0.055	(/mV)
 	vhm = -33	(mV)

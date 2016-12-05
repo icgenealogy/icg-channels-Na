@@ -55,7 +55,7 @@ PARAMETER {
 	sig_h2 = 16 (mV)
 
 : Delayed rectifier K
-	gkdrbar  = 57e-3	(S/cm2)  
+	gkdrbar  = 0.0	(S/cm2)  
 	theta_n = -41 (mV)
 	k_n = -14 (mV)     
 	tau_n0 = 0 (ms)
@@ -66,7 +66,7 @@ PARAMETER {
 	sig_n2 = 50 (mV)
 
 :Leakage current
-	gl	= 0.35e-3	(S/cm2)
+	gl	= 0.0	(S/cm2)
 	el	= -60	(mV)
 
 :Ca dynamics
@@ -76,7 +76,7 @@ PARAMETER {
       caGain = .1
 
 :T-type ca current
-	gcatbar   = 5e-3 (S/cm2)  
+	gcatbar   = 0.0 (S/cm2)  
 	theta_p = -56 (mV)
 	theta_q = -85 (mV) 
 	k_p = -6.7 (mV)    
@@ -95,7 +95,7 @@ PARAMETER {
 	sig_q2 = 16 (mV)
 
 :Ca L current
-	gcalbar   = 15e-3 (S/cm2) 
+	gcalbar   = 0.0 (S/cm2) 
 	theta_c = -30.6 (mV)
 	theta_d1 = -60 (mV)
 	theta_d2 = 0.1e-3 (mM)
@@ -118,7 +118,7 @@ PARAMETER {
 	tau_d2 = 130 (ms)
 
 :A current
-	gkabar  = 5e-3	(S/cm2)  
+	gkabar  = 0.0	(S/cm2)  
 	theta_a = -45 (mV)
 	theta_b = -90 (mV) 
 	k_a = -14.7 (mV)    
@@ -135,7 +135,7 @@ PARAMETER {
 	sig_b2 = 10 (mV)
 
 :AHP current (Ca dependent K current)
-	gkcabar   = 1e-3 (S/cm2) 
+	gkcabar   = 0.0 (S/cm2) 
 	theta_r = 0.17e-3 (mM)
 	k_r = -0.08e-3 (mM)
 	tau_r = 2 (ms)
@@ -220,7 +220,7 @@ BREAKPOINT {
 	ikD   = gkdrbar * n^4 * (v - ek)
 	ikA   = gkabar * a*a*b * (v - ek)
 	ikAHP   = gkcabar * (v - ek)*r^(power_r)
-	ik=ikD+ikA+ikAHP
+	ik=ikD:+ikA+ikAHP
 	icaT   = gcatbar * p*p*q * (v - eca)
 	icaL   = gcalbar * c*c*d1*d2 * (v - eca)
 	ica=icaT+icaL

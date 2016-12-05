@@ -8,8 +8,9 @@ UNITS {
 
 NEURON {
   SUFFIX nacurrent
-  NONSPECIFIC_CURRENT ina
-  RANGE g, e, vi, ki
+  :NONSPECIFIC_CURRENT ina
+  USEION na READ ena WRITE ina
+  RANGE g, vi, ki
   RANGE minf,hinf,iinf,mtau,htau,itau : testing
 }
   
@@ -17,7 +18,7 @@ PARAMETER {
   : v	    (mV)
   celsius	    (degC)
   g = 0.032   (mho/cm2)
-  e = 55	    (mV)
+  :e = 55	    (mV)
   vi = -60    (mV)
   ki = 0.8
 }
@@ -29,6 +30,7 @@ STATE {
 }
  
 ASSIGNED {
+  ena (mV)
   i (mA/cm2)
   ina	(mA/cm2) 
   minf
@@ -41,7 +43,7 @@ ASSIGNED {
 }
 
 : PROCEDURE iassign () { ina=g*m*m*m*h*i*(v-e) }
-PROCEDURE iassign () { i=g*m*m*m*h*I*(v-e) ina=i}
+PROCEDURE iassign () { i=g*m*m*m*h*I*(v-ena) ina=i}
  
 BREAKPOINT {
   SOLVE states METHOD cnexp

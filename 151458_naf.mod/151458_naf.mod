@@ -19,8 +19,8 @@ UNITS {
 NEURON {
         SUFFIX naf
         USEION na READ ena WRITE ina
-        RANGE  gnabar, ina, mshift, hshift
-		POINTER mu
+        RANGE  mu, gnabar, ina, mshift, hshift
+	:POINTER mu
 }
  
 PARAMETER {
@@ -35,7 +35,8 @@ PARAMETER {
 	hshift = 0		(mV)	: 
 
 	mqfact = 3
-	hqfact = 3	
+	hqfact = 3
+        mu = 1.0	
 }
  
 STATE { m h }
@@ -47,7 +48,7 @@ ASSIGNED {
         gna				(S/cm2)
         minf 
 		hinf
-		mu (1)
+		:mu (1)
 }
  
 BREAKPOINT {

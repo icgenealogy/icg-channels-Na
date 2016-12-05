@@ -19,7 +19,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 100 (ms)}
 PARAMETER {
         dt (ms)
 	v (mV)
-        ena=50 (mV)
+        :ena=50 (mV)
 	celsius = 22	(degC)
 	gnabar=.01 (mho/cm2)
 	vhalf=-50    (mV)
@@ -56,6 +56,7 @@ STATE {
 }
 
 ASSIGNED {
+        ena (mV)
 	Ir  (mA/cm2)
 	ina (mA/cm2)
 	inf

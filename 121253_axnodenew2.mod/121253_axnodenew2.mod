@@ -6,8 +6,9 @@ TITLE Motor Axon Node channels
 
 NEURON {
 	SUFFIX axnodenew2
-	NONSPECIFIC_CURRENT ina
-	NONSPECIFIC_CURRENT inap
+	:NONSPECIFIC_CURRENT ina
+	:NONSPECIFIC_CURRENT inap
+	USEION na READ ena WRITE ina
 	USEION k READ ek WRITE ik
 	NONSPECIFIC_CURRENT il
 	RANGE gnapbar, gnabar, gkbar, gl, ena, el
@@ -22,11 +23,11 @@ UNITS {
 }
 
 PARAMETER {
-	gnapbar = 0.05	(mho/cm2)
+	gnapbar = 0.0	(mho/cm2)
 	gnabar	= 3.0	(mho/cm2)
-	gkbar   = 0.07 	(mho/cm2)
-	gl	= 0.005 (mho/cm2)
-	ena     = 45.0  (mV)
+	gkbar   = 0.0 	(mho/cm2)
+	gl	= 0.0 (mho/cm2)
+	:ena     = 45.0  (mV)
 	el	= -70.0 (mV)
 	hpChange  =  1
 	mpChange  =  1
@@ -40,6 +41,7 @@ STATE {
 }
 
 ASSIGNED {
+	ena (mV)
 	ek (mV)
 	v (mV)
 	inap    (mA/cm2)

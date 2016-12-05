@@ -5,18 +5,20 @@ ENDCOMMENT
 
 NEURON {
   SUFFIX naleak
-  NONSPECIFIC_CURRENT i
-  RANGE i, Erev, g
+  :NONSPECIFIC_CURRENT i
+  USEION na READ ena WRITE ina
+  RANGE g
 }
 
 PARAMETER {
   g = 30.2e-6 (siemens/cm2) < 0, 1e9 >
-  Erev = 50 (millivolt)
+  :Erev = 50 (millivolt)
 }
 
 ASSIGNED {
-  i (milliamp/cm2)
+  ena (millivolt)
+  ina (milliamp/cm2)
   v (millivolt)
 }
 
-BREAKPOINT { i = g * (v - Erev) }
+BREAKPOINT { ina = g * (v - ena) }

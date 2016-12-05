@@ -20,7 +20,7 @@ UNITS {
 PARAMETER {            
 	K = 4.5            (1)      : slope of steady state variable
 :	gnabar = 0.001e-2 (mho/cm2) : suggested conductance, 1 percent of the transient Na current
-	gnabar = 0        (mho/cm2)
+	gnabar = 1.0        (mho/cm2)
 	vhalf  = -50.4    (mV)      : half potential
       
 }	

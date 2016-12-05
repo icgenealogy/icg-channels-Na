@@ -6,8 +6,9 @@
 
 NEURON {
 	SUFFIX nav1p9
-	NONSPECIFIC_CURRENT i
-	RANGE gbar, ena, slow_inact, m, h, s, gate
+	:NONSPECIFIC_CURRENT i
+	USEION na READ ena WRITE ina
+        RANGE gbar, slow_inact, m, h, s, gate
 	RANGE tau_m, tau_h, tau_s
 	: if slow_inact=1 then ultra-slow inactivation is included
 }
@@ -20,7 +21,7 @@ UNITS {
 
 PARAMETER {
 	gbar = 0.0069005 (S/cm2)
-	ena=62.94 (mV)
+	:ena=62.94 (mV)
 
 	A_am9 = 1.032 (/ms): 1.548 in Baker '05 : A for alpha m(9 etc ...)
 	B_am9 = 6.99 (mV) : -11.01 in Baker '05
@@ -51,8 +52,9 @@ PARAMETER {
 }
 
 ASSIGNED {
+        ena (mV)
 	v	(mV) : NEURON provides this
-	i	(mA/cm2)
+	ina	(mA/cm2)
 	g	(S/cm2)
 	tau_h	(ms)
 	tau_m	(ms)
@@ -67,7 +69,7 @@ STATE { m h s}
 BREAKPOINT {
 	SOLVE states METHOD cnexp
 	g = gbar * m * h * s
-	i = g * (v-ena)
+	ina = g * (v-ena)
 }
 
 INITIAL {
