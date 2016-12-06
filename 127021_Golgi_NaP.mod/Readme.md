@@ -10,7 +10,7 @@ ICG Class | [Na](http://icg.neurotheory.ox.ac.uk/channels/2)
 
 ## Description
 
-This is a single channel model file that was originally part of a [published model on the ModelDB website](http://senselab.med.yale.edu/mModelDB/ShowModel.cshtml?model=127021).
+This is a single channel model file that was originally part of a [published model on the ModelDB website](http://senselab.med.yale.edu/ModelDB/ShowModel.cshtml?model=127021).
 
 
 The file [127021\_Golgi\_NaP.mod](127021_Golgi_NaP.mod) was extrated from [the ModelDB repository](http://senselab.med.yale.edu/ModelDB/ShowModel.cshtml?model=127021), and committed in its original form.
