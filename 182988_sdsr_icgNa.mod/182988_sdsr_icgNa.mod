@@ -9,8 +9,9 @@ TITLE Isd and Isr currents of the Huber-Braun Model
 NEURON {
 	SUFFIX sdsr
 	USEION na READ ena WRITE ina
-	USEION k READ ek WRITE ik
+	:USEION k READ ek WRITE ik
 	RANGE gsd, gsr, isd
+	GLOBAL ena
 }
 
 
@@ -60,7 +61,7 @@ BREAKPOINT {
     rho = 1.3^((celsius - 25 (degC))/10(degC))
 	isd = rho * gsd * asd * (v - ena)
 	ina = isd
-	ik  = rho * gsr * (v - ek) * asr^n /(Kd^n + asr^n)
+:	ik  = rho * gsr * (v - ek) * asr^n /(Kd^n + asr^n)
 }
 
 DERIVATIVE states {

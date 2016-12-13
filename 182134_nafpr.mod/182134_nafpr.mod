@@ -18,8 +18,9 @@ ENDCOMMENT
 NEURON {
 
 	SUFFIX nafpr
-	USEION na WRITE ina
+	USEION na READ ena WRITE ina
 	RANGE gna, ina
+	GLOBAL ena
 }
 	
 UNITS {
@@ -80,4 +81,4 @@ PROCEDURE rates(v(mV)) { LOCAL a, b
     tauh = 1.0/(a+b)
 }
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/182134_aux_fun.inc"

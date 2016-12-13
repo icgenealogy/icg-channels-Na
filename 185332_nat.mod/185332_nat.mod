@@ -33,11 +33,11 @@ NEURON {
 	GLOBAL tha, thi1, thi2, qa, qi, qinf, thinf
 	RANGE minf, hinf, mtau, htau
 	GLOBAL Ra, Rb, Rd, Rg
-	GLOBAL q10, temp, tadj, vmin, vmax
+	GLOBAL q10, temp, tadj, vmin, vmax, ena
 }
 
 PARAMETER {
-	gbar = 0   	(S/cm2)	: 0.12 mho/cm2
+	gbar = 1.0   	(S/cm2)	: 0.12 mho/cm2
 	vshift = 0	(mV)		: voltage shift
 	vshift2 = 0	(mV)		: voltage shift 2
 	

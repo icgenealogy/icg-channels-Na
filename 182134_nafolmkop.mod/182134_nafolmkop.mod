@@ -22,7 +22,7 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX NafOlmKop
-	USEION na WRITE ina
+	USEION na READ ena WRITE ina
 }
 	
 UNITS {
@@ -79,4 +79,4 @@ PROCEDURE rates(v(mV)) { LOCAL am, bm, ah, bh
     taoh = 1./(ah+bh)
 }
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/182134_aux_fun.inc"

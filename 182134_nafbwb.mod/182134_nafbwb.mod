@@ -17,8 +17,8 @@ ENDCOMMENT
 
 NEURON {
 	SUFFIX Nafbwb
-	USEION na WRITE ina
-	GLOBAL phih
+	USEION na READ ena WRITE ina
+	GLOBAL phih, ena
 }
 	
 UNITS {
@@ -29,11 +29,11 @@ UNITS {
 
 PARAMETER {
     gna  = 35 (mS/cm2)
-    ena  = 55 (mV)
     phih = 5
 }
     
 ASSIGNED {
+    ena (mV)
     v       (mV)
     ina     (mA/cm2)
     minf    (1)
@@ -75,4 +75,4 @@ PROCEDURE rates(v(mV)) { LOCAL am, bm, ah, bh, q10
     taoh = 1./((ah+bh)*q10)
 }
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/182134_aux_fun.inc"

@@ -27,7 +27,7 @@ NEURON {
 	SUFFIX NaPyr
 	USEION na READ ena WRITE ina
 	RANGE  gbar, ina, minf,malpha, mbeta
-	GLOBAL  v_table_min, v_table_max
+	GLOBAL  v_table_min, v_table_max, ena
 }
 
 PARAMETER {

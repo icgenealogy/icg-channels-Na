@@ -15,10 +15,11 @@ NEURON {
          USEION na READ ena WRITE ina
          RANGE Vna, ina, vrev
          RANGE a1, a2, b1, b2, c1, c2
+	GLOBAL ena
 }
 
 PARAMETER {
-           gbar=0.0    (mho/cm2)
+           gbar=1.0    (mho/cm2)
            Vna = 10.0  (mV)
            a1 =0.025    (ms)
            b1 = 0.14   (ms)

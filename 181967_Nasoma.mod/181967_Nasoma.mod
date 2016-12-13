@@ -43,7 +43,7 @@ UNITS {
 NEURON {
         SUFFIX Nasoma
         USEION na READ ena WRITE ina
-        NONSPECIFIC_CURRENT il
+        :NONSPECIFIC_CURRENT il
         RANGE gnasoma, gl, el, ina
         GLOBAL minf, hinf, hexp, mtau, htau
 }
@@ -66,7 +66,7 @@ STATE {
  
 ASSIGNED {
         ina (mA/cm2)
-        il (mA/cm2)
+        :il (mA/cm2)
         minf 
 	mexp 
 	hinf 
@@ -83,7 +83,7 @@ INITIAL {
 BREAKPOINT {
         SOLVE states
 	ina = gnasoma*minf*minf*minf*h*(v - ena)    
-        il = gl*(v - el)
+        :il = gl*(v - el)
 }
 
 PROCEDURE states() {	:exact when v held constant

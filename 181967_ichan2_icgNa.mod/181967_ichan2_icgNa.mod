@@ -19,14 +19,16 @@ UNITS {
 ? interface 
 NEURON { 
 SUFFIX ichan2 
-USEION nat READ enat WRITE inat VALENCE 1
-USEION kf READ ekf WRITE ikf  VALENCE 1
-USEION ks READ eks WRITE iks  VALENCE 1
-NONSPECIFIC_CURRENT il 
+:USEION nat READ enat WRITE inat VALENCE 1
+:USEION kf READ ekf WRITE ikf  VALENCE 1
+:USEION ks READ eks WRITE iks  VALENCE 1
+:NONSPECIFIC_CURRENT il 
+USEION na READ ena WRITE ina
 RANGE  gnat, gkf, gks
 RANGE gnatbar, gkfbar, gksbar
 RANGE gl, el
 RANGE minf, mtau, hinf, htau, nfinf, nftau, inat, ikf, nsinf, nstau, iks
+GLOBAL ena
 }
  
 INDEPENDENT {t FROM 0 TO 100 WITH 100 (ms)}
@@ -36,7 +38,7 @@ PARAMETER {
         celsius = 6.3 (degC)
         dt (ms) 
         enat  (mV)
-	gnatbar (mho/cm2)   
+	gnatbar = 1.0 (mho/cm2)   
         ekf  (mV)
 	gkfbar (mho/cm2)
         eks  (mV)
@@ -50,12 +52,12 @@ STATE {
 }
  
 ASSIGNED {
-         
+	ena (mV)         
         gnat (mho/cm2) 
         gkf (mho/cm2)
         gks (mho/cm2)
 
-        inat (mA/cm2)
+        ina (mA/cm2)
         ikf (mA/cm2)
         iks (mA/cm2)
 
@@ -71,13 +73,13 @@ ASSIGNED {
 BREAKPOINT {
 	SOLVE states
         gnat = gnatbar*m*m*m*h  
-        inat = gnat*(v - enat)
-        gkf = gkfbar*nf*nf*nf*nf
-        ikf = gkf*(v-ekf)
-        gks = gksbar*ns*ns*ns*ns
-        iks = gks*(v-eks)
+        ina = gnat*(v - ena)
+        :gkf = gkfbar*nf*nf*nf*nf
+        :ikf = gkf*(v-ekf)
+        :gks = gksbar*ns*ns*ns*ns
+        :iks = gks*(v-eks)
 
-	il = gl*(v-el)
+	:il = gl*(v-el)
 }
  
 UNITSOFF

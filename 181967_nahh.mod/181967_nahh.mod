@@ -5,7 +5,7 @@ NEURON {
 	SUFFIX nahh
 	USEION na READ ena WRITE ina
 	RANGE gnabar
-	GLOBAL inf,tau
+	GLOBAL inf,tau,ena
 }
 
 UNITS {

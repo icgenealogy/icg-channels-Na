@@ -4,7 +4,7 @@ NEURON {
 	SUFFIX naps
 	USEION na READ ena WRITE ina
 	RANGE  gbar, thegna, sh, ar,minf,sinf,taus
-	GLOBAL mtau,vslope
+	GLOBAL mtau,vslope, ena
 }
 
 PARAMETER {

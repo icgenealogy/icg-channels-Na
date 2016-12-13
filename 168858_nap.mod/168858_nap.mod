@@ -16,10 +16,11 @@ NEURON {
 	SUFFIX nap
 	USEION na READ ena WRITE ina
 	RANGE gbar, ina, Nashift
+	GLOBAL ena
 }
 
 PARAMETER { 
-	gbar = 0.0 	(mho/cm2)
+	gbar = 1.0 	(mho/cm2)
 	v ena 		(mV)  
         Nashift = 0.0   (mV)
 } 

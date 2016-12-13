@@ -5,6 +5,7 @@ NEURON	{
 	SUFFIX NaTs2_t
 	USEION na READ ena WRITE ina
 	RANGE gNaTs2_tbar, gNaTs2_t, ina
+	GLOBAL ena
 }
 
 UNITS	{

@@ -12,8 +12,9 @@ UNITS {
  
 NEURON {
         SUFFIX NaF
-	USEION na WRITE ina
+	USEION na READ ena WRITE ina
         RANGE  gnabar, gna, minf, hinf, mexp, hexp, ina
+	GLOBAL ena
 } 
  
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}

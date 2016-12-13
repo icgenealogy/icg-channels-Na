@@ -15,6 +15,7 @@ NEURON {
     USEION na READ ena WRITE ina
     RANGE  gbar, sh
 :   GLOBAL minf, hinf, mtau, htau,thinf, qinf, Rb, Rg, qg
+    GLOBAL ena
 }
 
 PARAMETER {

@@ -6,6 +6,7 @@ NEURON {
   SUFFIX naRsg
   USEION na READ ena WRITE ina
   RANGE g, gbar
+  GLOBAL ena
 }
 
 UNITS { 

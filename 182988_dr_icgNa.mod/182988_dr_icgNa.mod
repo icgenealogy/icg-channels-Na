@@ -8,9 +8,10 @@ TITLE Id and Ir currents of the Huber-Braun Model
 NEURON {
 	SUFFIX dr
 	USEION na READ ena WRITE ina
-	USEION k READ ek WRITE ik
+	:USEION k READ ek WRITE ik
 	RANGE gd, gr
 	RANGE td, tr
+	GLOBAL ena
 }
 
 
@@ -55,7 +56,7 @@ BREAKPOINT {
     rho = 1.3^((celsius - 25 (degC))/10(degC))
 	ad = 1/(1+exp(-sd*(v - V0d)))
     ina = rho * gd * ad * (v - ena)
-	ik  = rho * gr * ar * (v - ek)
+	:ik  = rho * gr * ar * (v - ek)
 }
 
 DERIVATIVE states {

@@ -44,7 +44,7 @@ NEURON {
         SUFFIX Nasoma
         USEION na READ ena WRITE ina
         RANGE gna, ina
-        GLOBAL minf, hinf, hexp, mtau, htau
+        GLOBAL minf, hinf, hexp, mtau, htau, ena
 }
  
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}

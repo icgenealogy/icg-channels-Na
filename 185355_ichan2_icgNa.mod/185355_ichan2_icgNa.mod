@@ -65,9 +65,9 @@ NEURON {
 SUFFIX ichan2
 
 : ION usage block
-USEION na READ ena WRITE ina VALENCE 1			: Na current
-USEION k READ ek WRITE ik  				: K current
-NONSPECIFIC_CURRENT il, igabaa 				: leak current
+USEION na READ ena WRITE ina			: Na current
+:USEION k READ ek WRITE ik  				: K current
+:NONSPECIFIC_CURRENT il, igabaa 				: leak current
 
 : range variable definition block,
 : i.e. variables that might change with space along a compartment / could be declared global in this case
@@ -85,7 +85,7 @@ PARAMETER {
         :celsius = 6.3 (degC)
         :dt (ms) 
 
-        gnatbar (mho/cm2)   				: Na (gbar and reversal poti)
+        gnatbar = 1.0 (mho/cm2)   				: Na (gbar and reversal poti)
         ena  	(mV)	
 		
 	gkfbar 	(mho/cm2)				: K  (gbar(slow/fast), reversal is ek)
@@ -140,9 +140,9 @@ BREAKPOINT {
         gks = gksbar*ns*ns*ns*ns
 
         ina = gna*(v - ena)				: calculated currents flowing
-       	ik = gkf*(v-ek) + gks*(v-ek)
-	il = gl*(v-el)
-	igabaa = ggabaa*(v-egabaa)
+ :      	ik = gkf*(v-ek) + gks*(v-ek)
+:	il = gl*(v-el)
+:	igabaa = ggabaa*(v-egabaa)
 }
  
 : UNITSOFF

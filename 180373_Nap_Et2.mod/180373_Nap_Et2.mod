@@ -7,6 +7,7 @@ NEURON	{
 	SUFFIX Nap_Et2
 	USEION na READ ena WRITE ina
 	RANGE gNap_Et2bar, gNap_Et2, ina
+	GLOBAL ena
 }
 
 UNITS	{

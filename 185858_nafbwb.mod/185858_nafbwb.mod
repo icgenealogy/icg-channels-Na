@@ -6,9 +6,10 @@ UNITS {
 
 NEURON {
   SUFFIX Nafbwb
-  USEION na WRITE ina
+  USEION na READ ena WRITE ina
   RANGE phih
   RANGE gna, ena, taoh : testing
+  GLOBAL ena
 }
 	
 PARAMETER {
@@ -60,4 +61,4 @@ PROCEDURE rates(v(mV)) { LOCAL am, bm, ah, bh, q10
   taoh = 1./((ah+bh)*q10)
 }
 
-INCLUDE "aux_fun.inc"
+INCLUDE "custom_code/inc_files/185858_aux_fun.inc"
