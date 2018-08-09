@@ -22,7 +22,8 @@ UNITS {
 }
 
 PARAMETER {
-        g= 7e-5	(S/cm2)
+        :g= 7e-5	(S/cm2)
+        g= 1.0	(S/cm2)
 }
 
 ASSIGNED {

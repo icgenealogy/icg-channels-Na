@@ -22,7 +22,7 @@ NEURON {
 SUFFIX nad 
 USEION na READ ena WRITE ina
 RANGE gnat
-RANGE gnatbar
+RANGE gbar
 :RANGE inat
 RANGE alphaD, betaD
 }
@@ -34,7 +34,7 @@ PARAMETER {
     celsius = 6.3 (degC)
     dt (ms) 
     ena  (mV)
-	gnatbar = 1.0 (mho/cm2)
+	gbar = 1.0 (mho/cm2)
     alphaD = 1.0 (/ms)
     betaD = 0.0 (/ms)
 }
@@ -77,7 +77,7 @@ ASSIGNED {
 ? currents
 BREAKPOINT {
 	SOLVE scheme1 METHOD sparse
-        gnat = gnatbar*O  
+        gnat = gbar*O  
         ina = gnat*(v - ena)
 }
  

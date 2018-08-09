@@ -24,7 +24,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 NEURON {
 	SUFFIX inaT
 	USEION na READ ena WRITE ina
-	RANGE gnabar, g, vtraub, shift
+	RANGE gbar, g, vtraub, shift
 	RANGE m_inf, h_inf
 	RANGE tau_m, tau_h
 	RANGE m_exp, h_exp
@@ -37,7 +37,7 @@ UNITS {
 }
 
 PARAMETER {
-	gnabar	= .003 	(mho/cm2)	: max conductance
+	gbar	= .003 	(mho/cm2)	: max conductance
 	vtraub	= -65	(mV)		: adjusts threshold
 	shift	= 0	(mV)		: inactivation shift
 	ena	= 50	(mV)
@@ -65,7 +65,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states
-	g = gnabar * m*m*m*h
+	g = gbar * m*m*m*h
 	ina = g * (v - ena)
 }
 

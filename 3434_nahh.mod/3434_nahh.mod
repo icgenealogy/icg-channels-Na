@@ -15,7 +15,7 @@ UNITS {
 NEURON {
         SUFFIX nahh
         USEION na READ ena WRITE ina
-        RANGE  gnabar, gna, ina, alphamVHalf, alphamK, alpham0, betamVHalf, betamK, betam0, alphahVHalf, alphahK, alphah0, betahVHalf, betahK, betah0, q10, T0
+        RANGE  gbar, gna, ina, alphamVHalf, alphamK, alpham0, betamVHalf, betamK, betam0, alphahVHalf, alphahK, alphah0, betahVHalf, betahK, betah0, q10, T0
 }
 
 COMMENT
@@ -24,7 +24,7 @@ COMMENT
 ENDCOMMENT
  
 PARAMETER {
-        gnabar = 0.12 (S/cm2)	<0,1e9>
+        gbar = 0.12 (S/cm2)	<0,1e9>
         alpham0 = 1.0 (/ms)		<0,1e9>
         alphamVHalf = -40 (mV)
         alphamK = 10.0 (mV)		<0,1e9>
@@ -58,7 +58,7 @@ ASSIGNED {
 
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gna = gnabar*m*m*m*h
+        gna = gbar*m*m*m*h
         ina = gna*(v - ena)      
 }
  

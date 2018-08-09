@@ -30,7 +30,7 @@ NEURON {
 	USEION k READ ko
 	USEION na READ nai, nao, ena WRITE ina
 	GLOBAL ina_p_h, tau_act, conc_half, helling
-	RANGE gnabar, ina
+	RANGE gbar, ina
 }
 
 UNITS {
@@ -41,7 +41,7 @@ UNITS {
 
 PARAMETER {
 	celsius		(degC)
-	gnabar=1e-6	(mho/cm2)	: Maximum Permeability .2e-3*5 hans
+	gbar=1e-6	(mho/cm2)	: Maximum Permeability .2e-3*5 hans
 	helling=-.765	(mM)		: K-slope of boltzman
 	conc_half=7 	(mM)		: conc. for halfmax. activation
 	ina_p_h = 25000	(ms)		:taufactor tov snelle na-stroom
@@ -62,7 +62,7 @@ STATE { ma mb ha hb }		: fraction of states, m=fraction in open state.
 BREAKPOINT {
 	SOLVE nastate METHOD sparse
 	:boltzman()
-	ina = gnabar*ma*ma*ha*kdep(ko)*(v-ena) :*ghk(v,nai,nao)
+	ina = gbar*ma*ma*ha*kdep(ko)*(v-ena) :*ghk(v,nai,nao)
 	:ma = 1 - mb
 	:ha = 1 - hb
 }
@@ -73,7 +73,7 @@ INITIAL {
 	mb=1-ma
 	ha=h_inf(v)
 	hb=1-ha
-	ina = gnabar*ma*ma*ha*kdep(ko)*(v-ena) :*ghk(v,nai,nao)
+	ina = gbar*ma*ma*ha*kdep(ko)*(v-ena) :*ghk(v,nai,nao)
 }
 
 LOCAL a1,a2,b1,b2

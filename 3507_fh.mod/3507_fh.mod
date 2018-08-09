@@ -6,7 +6,7 @@ NEURON {
 	USEION na READ nai, nao WRITE ina
 	USEION k READ ki, ko WRITE ik
 	NONSPECIFIC_CURRENT il, ip
-	RANGE pnabar, pkbar, ppbar, gl, el, il, ip
+	RANGE gbar, pkbar, ppbar, gl, el, il, ip
 	GLOBAL inf,tau
 }
 
@@ -23,7 +23,7 @@ UNITS {
 PARAMETER {
 	v (mV)
 	celsius (degC) : 20
-	pnabar=8e-3 (cm/s)
+	gbar=8e-3 (cm/s)
 	ppbar=0.0 (cm/s)
 	pkbar=0.0 (cm/s)
 	nai (mM) : 13.74
@@ -57,7 +57,7 @@ BREAKPOINT {
 	LOCAL ghkna
 	SOLVE states METHOD cnexp
 	ghkna = ghk(v, nai, nao)
-	ina = pnabar*m*m*h*ghkna
+	ina = gbar*m*m*h*ghkna
 	ip = ppbar*p*p*ghkna
 	ik = pkbar*n*n*ghk(v, ki, ko)
 	il = gl*(v - el)

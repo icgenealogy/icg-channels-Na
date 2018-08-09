@@ -4,7 +4,7 @@
 NEURON {
 	SUFFIX Nap
 	USEION na READ ena WRITE ina
-	RANGE gNapbar, gna
+	RANGE gbar, gna
 }
 
 UNITS {
@@ -13,7 +13,7 @@ UNITS {
 }
 
 PARAMETER {
-	gNapbar= 0.0022 (mho/cm2) <0,1e9>
+	gbar= 0.0022 (mho/cm2) <0,1e9>
 	:ena = 55 (mV)
 }
 
@@ -36,7 +36,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD derivimplicit
-	gna = gNapbar*m*h
+	gna = gbar*m*h
 	ina = gna*(v-ena)
 }
 

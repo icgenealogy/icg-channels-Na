@@ -29,7 +29,7 @@ ASSIGNED {
 
 STATE { h }
 
-PROCEDURE iassign () { ina = (1e-3) * gna * minf^3 * h * (v-ena) }
+PROCEDURE iassign () { ina = 1 * gna * minf^3 * h * (v-ena) }
 
 INITIAL {
   rates(v)

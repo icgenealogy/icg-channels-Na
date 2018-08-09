@@ -12,12 +12,12 @@ UNITS {
 NEURON {
         SUFFIX inter
         USEION na READ ena WRITE ina
-        RANGE gnabar, gna, ina
+        RANGE gbar, gna, ina
         GLOBAL minf, mtau, hinf, htau
 }
  
 PARAMETER {
-        gnabar = 1.0 (S/cm2)	<0,1e9>            
+        gbar = 1.0 (S/cm2)	<0,1e9>            
 }
  
 STATE {
@@ -41,7 +41,7 @@ LOCAL mexp, hexp
 BREAKPOINT {
         SOLVE states METHOD cnexp
         m = minf
-        gna = gnabar*m*h
+        gna = gbar*m*h
 	ina = gna*(v - ena)	
 }
  

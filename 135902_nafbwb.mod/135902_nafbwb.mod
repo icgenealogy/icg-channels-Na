@@ -54,7 +54,7 @@ BREAKPOINT {
 
 	SOLVE states METHOD cnexp
 	
-	ina = (1e-3) * gna * minf^3 * h * (v-ena)
+	ina = 1 * gna * minf^3 * h * (v-ena)
 }
 
 DERIVATIVE states { 

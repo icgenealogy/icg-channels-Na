@@ -9,11 +9,11 @@ UNITS {
 NEURON {
     SUFFIX HH_Na35
     USEION na READ ena WRITE ina
-    RANGE gmax
+    RANGE gbar
 }
 
 PARAMETER {
-    gmax= 0.045 (mho/cm2)
+    gbar= 0.045 (mho/cm2)
 }
 
 ASSIGNED { 
@@ -32,7 +32,7 @@ STATE {
 
 BREAKPOINT {
     SOLVE states METHOD cnexp
-    ina  = gmax*m*m*m*h*(v-ena)
+    ina  = gbar*m*m*m*h*(v-ena)
 }
 
 INITIAL {

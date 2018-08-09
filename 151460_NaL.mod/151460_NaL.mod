@@ -9,8 +9,8 @@ COMMENT
  pure leak had the same effect, so I stuck to the pure leak..
 
  How the q10 works: There is a q10 for the rates (alpha and beta's)
- called Q10 and a Q10 for the maximum conductance called gmaxQ10.
- Here, we only use gmaxQ10.  The q10s should have been measured at
+ called Q10 and a Q10 for the maximum conductance called gbarQ10.
+ Here, we only use gbarQ10.  The q10s should have been measured at
  specific temperatures temp1 and temp2 (that are 10degC
  apart). Ideally, as Q10 is temperature dependant, we should know
  these two temperatures.  We are going to follow the more formal
@@ -30,7 +30,7 @@ NEURON {
        SUFFIX NaL
        USEION na READ ena,nai WRITE ina
        RANGE gna,inaL
-       GLOBAL activate_Q10,gmaxQ10,gmax_k,temp1,temp2,tempb
+       GLOBAL activate_Q10,gbarQ10,gbar_k,temp1,temp2,tempb
 }
 
 PARAMETER {
@@ -42,7 +42,7 @@ PARAMETER {
 	celsius
 
 	activate_Q10 = 1
-	gmaxQ10 = 1.5
+	gbarQ10 = 1.5
 	temp1 = 25.0 (degC)
 	temp2 = 35.0 (degC)
 	tempb = 23.0 (degC)	
@@ -50,11 +50,11 @@ PARAMETER {
 
 ASSIGNED { 
         ina (mA/cm2)
-	gmax_k
+	gbar_k
 }
 
 BREAKPOINT {
-	   ina	= gna*gmax_k*(v-ena)
+	   ina	= gna*gbar_k*(v-ena)
 	   inaL = ina
 }
 UNITSOFF
@@ -66,9 +66,9 @@ INITIAL {
 	  ktempb = tempb+273.0
 	  ktemp1 = temp1+273.0
 	  ktemp2 = temp2+273.0
-	  gmax_k = exp( log(gmaxQ10)*((1/ktempb)-(1/ktemp))/((1/ktemp1)-(1/ktemp2)) )
+	  gbar_k = exp( log(gbarQ10)*((1/ktempb)-(1/ktemp))/((1/ktemp1)-(1/ktemp2)) )
 	}else{
-	  gmax_k = 1.0
+	  gbar_k = 1.0
 	}
 }	
 UNITSON

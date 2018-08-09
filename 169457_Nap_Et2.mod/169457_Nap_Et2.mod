@@ -6,7 +6,7 @@
 NEURON	{
 	SUFFIX Nap_Et2
 	USEION na READ ena WRITE ina
-	RANGE gNap_Et2bar, gNap_Et2, ina, offm, slom, offma, offmb, sloma, slomb, tauma, taumb, taummax, offh, sloh, offha, offhb, sloha, slohb, tauha, tauhb, tauhmax
+	RANGE gbar, gNap_Et2, ina, offm, slom, offma, offmb, sloma, slomb, tauma, taumb, taummax, offh, sloh, offha, offhb, sloha, slohb, tauha, tauhb, tauhmax
 	GLOBAL ena
 }
 
@@ -17,7 +17,7 @@ UNITS	{
 }
 
 PARAMETER	{
-	gNap_Et2bar = 0.00001 (S/cm2)
+	gbar = 0.00001 (S/cm2)
 	offm = -52.6 (mV)
 	slom = 4.6 (mV)
 	offma = -38 (mV)
@@ -60,7 +60,7 @@ STATE	{
 
 BREAKPOINT	{
 	SOLVE states METHOD cnexp
-	gNap_Et2 = gNap_Et2bar*m*m*m*h
+	gNap_Et2 = gbar*m*m*m*h
 	ina = gNap_Et2*(v-ena)
 }
 

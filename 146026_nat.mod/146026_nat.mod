@@ -98,7 +98,7 @@ BREAKPOINT {
 
 	SOLVE states METHOD cnexp
     gna = gbarfactor*tadj*gbar*m*m*m*h
-	ina = (1e-4) * gna * (v - ena)
+	ina = 1 * gna * (v - ena)
 } 
 
 LOCAL mexp, hexp 

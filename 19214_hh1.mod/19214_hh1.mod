@@ -2,7 +2,7 @@ TITLE hh1.mod   squid sodium, potassium, and leak channels
 
 COMMENT
 A replica of NEURON hh.mod membrane mechanism with 10 times 
-smaller conductivities gnabar, gkbar and gl and slightly modified ek and el
+smaller conductivities gbar, gkbar and gl and slightly modified ek and el
 for simulation of active dendritic membrane of the models described in: 
 Korogod SM and Kulagina IB (1998) Biol Cybern 79:231-240
 ENDCOMMENT
@@ -17,7 +17,7 @@ NEURON {
         USEION na READ ena WRITE ina
         USEION k READ ek WRITE ik
         NONSPECIFIC_CURRENT il
-        RANGE gnabar, gna, gkbar, gk, gl, el
+        RANGE gbar, gna, gkbar, gk, gl, el
         GLOBAL minf, hinf, ninf, mexp, hexp, nexp
 }
 
@@ -25,7 +25,7 @@ PARAMETER {
         v (mV)
         celsius = 6.3 (degC)
         dt (ms)
-        gnabar = .012 (mho/cm2)
+        gbar = .012 (mho/cm2)
         ena = 50 (mV)
         gkbar = 0.0 (mho/cm2)
         ek = -77.5 (mV)
@@ -48,7 +48,7 @@ ASSIGNED {
 
 BREAKPOINT {
         SOLVE states
-        gna = gnabar*m*m*m*h
+        gna = gbar*m*m*m*h
         ina = gna*(v - ena)
         gk = gkbar*n*n*n*n
         ik = gk*(v - ek)

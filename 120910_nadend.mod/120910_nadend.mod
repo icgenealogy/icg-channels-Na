@@ -8,7 +8,7 @@ UNITS {
 NEURON {
         SUFFIX nadend
         USEION na READ ena WRITE ina
-        RANGE gnabar
+        RANGE gbar
         GLOBAL minf, hinf, mexp, hexp
 }
  
@@ -18,7 +18,7 @@ PARAMETER {
         v (mV)
         celsius (degC)
         dt (ms)
- 	gnabar = 0.1250(mho/cm2) 
+ 	gbar = 0.1250(mho/cm2) 
 }
  
 STATE {
@@ -33,7 +33,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states
-        ina = gnabar*m*m*m*m*h*(v - ena)
+        ina = gbar*m*m*m*m*h*(v - ena)
 }
  
 UNITSOFF

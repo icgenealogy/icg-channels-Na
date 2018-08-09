@@ -10,11 +10,11 @@ UNITS {
 NEURON { 
 	SUFFIX NaF
 	USEION na READ ena WRITE ina
-	RANGE g, gmax, ina
+	RANGE g, gbar, ina
 	GLOBAL minf, mtau, hinf, htau
 }
 PARAMETER { : PARAMETERS ARE BY DEFAULT GLOBAL VARIABLES
-	gmax = 0.0195 	(mho/cm2)
+	gbar = 0.0195 	(mho/cm2)
 	ena (mV)
 	m_vh = -23.9	(mV)	: half activation 
 	m_ve = -11.8	(mV)	: slope
@@ -35,7 +35,7 @@ STATE {
 }
 BREAKPOINT { 
 	SOLVE states METHOD cnexp
-	g = gmax * m*m*m * h
+	g = gbar * m*m*m * h
 	ina = g * (v - ena ) 
 } 
 INITIAL { 

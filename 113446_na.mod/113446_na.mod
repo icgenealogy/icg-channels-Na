@@ -17,7 +17,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 100 (ms)}
 NEURON {
 	SUFFIX nachan
 	USEION na READ ena WRITE ina
-	RANGE gnabar, ina, interval, freq, n, firing, qna
+	RANGE gbar, ina, interval, freq, n, firing, qna
 	GLOBAL shiftm, shifth, scaletaum, scaletauh
 }
 
@@ -32,7 +32,7 @@ UNITS {
 
 PARAMETER {
 	celsius=36	(degC)
-	gnabar=1e-3	(mho/cm2)	: default max. perm.
+	gbar=1e-3	(mho/cm2)	: default max. perm.
 	shiftm=0	(mV)		: shift activatie
 	shifth=0	(mV)		: shift inactivatie
 	scaletaum=1	(mV)
@@ -55,7 +55,7 @@ STATE { ma mb ha hb qna }		: fraction of states, ma=fraction in open state.
 
 BREAKPOINT {
 	SOLVE nastate METHOD sparse
-	ina = gnabar*ma*ma*ma*ha*(v-ena)
+	ina = gbar*ma*ma*ma*ha*(v-ena)
 }
 
 INITIAL {
@@ -68,7 +68,7 @@ INITIAL {
 	interval = 0
 	firing = 0
 	qna = 0
-	ina = gnabar*ma*ma*ma*ha*(v-ena)
+	ina = gbar*ma*ma*ma*ha*(v-ena)
 }
 
 LOCAL a1,a2,b1,b2
@@ -132,5 +132,5 @@ FUNCTION h_inf(v(mV)) {
 }
 
 FUNCTION window(v(mV)) {
-	window=gnabar*m_inf(v)^3*h_inf(v)*(v-ena)
+	window=gbar*m_inf(v)^3*h_inf(v)*(v-ena)
 }

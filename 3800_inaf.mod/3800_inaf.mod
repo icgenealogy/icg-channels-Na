@@ -4,7 +4,7 @@ TITLE Cardiac fast sodium current
 NEURON {
 	SUFFIX INaf
 	USEION na READ ena WRITE ina
-	RANGE gnabar, ina, Tauact, Tauinactf, Tauinacts
+	RANGE gbar, ina, Tauact, Tauinactf, Tauinacts
 	GLOBAL minf, hinf, ninf, mtau, htau, ntau
 }
 
@@ -16,7 +16,7 @@ UNITS {
 }
 
 PARAMETER {
-	gnabar=.0156 (S/cm2) <0,1e9> 
+	gbar=.0156 (S/cm2) <0,1e9> 
 	Tauact= 1 (ms) 
 	Tauinactf=1 (ms) 
 	Tauinacts=1 (ms)
@@ -49,7 +49,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD derivimplicit
-	ina = gnabar*m*m*m*h*n*(v - ena)
+	ina = gbar*m*m*m*h*n*(v - ena)
 }
 
 DERIVATIVE states {

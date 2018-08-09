@@ -5,7 +5,7 @@ NEURON {
 	SUFFIX namr
 	USEION na READ ena WRITE ina
 	NONSPECIFIC_CURRENT Ir
-        RANGE gnabar,b,vhalf,vhalfn,vhalfl,vvh
+        RANGE gbar,b,vhalf,vhalfn,vhalfl,vvh
         GLOBAL ninf,linf,taul,taun,rinf,taur,inf
 }
 
@@ -20,7 +20,7 @@ PARAMETER {
 	v (mV)
         :ena (mV)
 	celsius 	(degC)
-	gnabar=.01 (mho/cm2)
+	gbar=.01 (mho/cm2)
 	vhalf=-50    (mV)
 	zeta=20       (1)
         vhalfn=-30   (mV)
@@ -75,7 +75,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ina = gnabar*n*l*r*(v-ena)
+	ina = gbar*n*l*r*(v-ena)
 	Ir = -ina*fr
 }
 

@@ -10,7 +10,7 @@ ASSIGNED {
 PARAMETER {
 	:ena 		= 55       (mV)
 	:erev 		= 55       (mV)
-	gmax 		= 0.030     (umho)
+	gbar 		= 0.030     (umho)
 
         vrest           = 0.0
 	mvalence 	= 2

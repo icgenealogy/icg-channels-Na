@@ -15,7 +15,7 @@ UNITS {
 NEURON {
         SUFFIX CA1NaP
         USEION na READ ena WRITE ina
-        RANGE gnaP
+        RANGE gbar
         GLOBAL mPinf, mPexp
 }
  
@@ -24,7 +24,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
         v (mV)
         dt (ms)
-        gnaP = 0.00017 (mho/cm2)
+        gbar = 0.00017 (mho/cm2)
         :ena = 65 (mV)
         vhalf = -49 (mV)
 }
@@ -41,7 +41,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states
-        ina = gnaP*mP*(v - ena)
+        ina = gbar*mP*(v - ena)
 }
  
 UNITSOFF

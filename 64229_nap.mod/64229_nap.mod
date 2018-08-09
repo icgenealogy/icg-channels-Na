@@ -9,7 +9,7 @@ ASSIGNED {
 }
 PARAMETER {
 	:erev 		= 45        (mV)
-	gmax 		= 0.1     (umho)
+	gbar 		= 0.1     (umho)
         vrest           = 0
 
 	mvalence 	= 4.3

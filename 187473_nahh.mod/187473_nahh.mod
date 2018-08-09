@@ -5,7 +5,7 @@ TITLE nahh
 NEURON {
 	SUFFIX nahh
 	USEION na READ ena WRITE ina
-	RANGE gnabar, m, h, ishift, mshift, hshift
+	RANGE gbar, m, h, ishift, mshift, hshift
 	GLOBAL inf,tau,ena
 }
 
@@ -17,7 +17,7 @@ UNITS {
 PARAMETER {
 	v (mV)
 	celsius		(degC)
-	gnabar=.300 	(mho/cm2)
+	gbar=.300 	(mho/cm2)
 	ena 		(mV)
 	ishift		(mV)
 	mshift		(mV)
@@ -40,7 +40,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ina = gnabar*m*m*m*h*(v - ena)
+	ina = gbar*m*m*m*h*(v - ena)
 }
 
 DERIVATIVE states {	

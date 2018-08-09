@@ -6,13 +6,13 @@ TITLE ch_Navp
 NEURON {
 	SUFFIX ch_Navp
 	USEION na READ ena WRITE ina
-	RANGE  gmax, ar2, myi, e, tha
+	RANGE  gbar, ar2, myi, e, tha
 	GLOBAL minf, hinf, mtau, htau, sinf, taus,qinf, thinf
 }
 
 PARAMETER {
 	sh   = 15 (mV) :15	(mV)
-	gmax = 0.010   	(mho/cm2)	
+	gbar = 0.010   	(mho/cm2)	
 								
 	tha  = -40 (mV) :-30 (mV) : previously I had updated it to -40, then -36 (mV)
 	qa   = 10.5 (mV) : 7.2	(mV)		: act slope (4.5)		
@@ -70,7 +70,7 @@ STATE { m h s}
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	g = gmax*m*m*m*h*s
+	g = gbar*m*m*m*h*s
 	ina = g * (v - ena)
 	myi = ina
 } 

@@ -185,7 +185,7 @@ BREAKPOINT {
     } else{                                        
     gna = strap(m3h1) * scale_dens * tadj
     }
-    ina = (1e-4) * gna * (v - ena)
+    ina = 1 * gna * (v - ena)
 } 
 
 

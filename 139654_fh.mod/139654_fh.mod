@@ -16,7 +16,7 @@ NEURON {
 	SUFFIX fh
 	USEION na READ ena WRITE ina
     NONSPECIFIC_CURRENT il
-    RANGE gnabar, gl, el, gna, il, vsh
+    RANGE gbar, gl, el, gna, il, vsh
 	GLOBAL minf, hinf, mtau, htau
 }
 
@@ -29,7 +29,7 @@ UNITS {
 
 PARAMETER {
 	celsius (degC) : 14
-	gnabar = 1.0 (S/cm2)	<0,1e9>
+	gbar = 1.0 (S/cm2)	<0,1e9>
     gl = 0 (S/cm2)	   <0,1e9>
     el = 0 (mV)
     vsh = -70 (mV)
@@ -54,7 +54,7 @@ BREAKPOINT {
 	LOCAL ghkna
 	SOLVE states METHOD cnexp 
     
-    gna = gnabar*m*m*h
+    gna = gbar*m*m*h
 	ina = gna*(v - ena)
     il = gl*(v - el)
 

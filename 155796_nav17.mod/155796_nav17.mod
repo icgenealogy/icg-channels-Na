@@ -20,7 +20,7 @@ NEURON {
     SUFFIX nav17 
     USEION na READ ena WRITE ina VALENCE 1
     RANGE gna
-    RANGE gnabar
+    RANGE gbar
     RANGE ina, jina17
     RANGE alphaD, betaD
 }
@@ -31,7 +31,7 @@ PARAMETER {
     v (mV) 
     dt (ms) 
     ena  (mV)
-    gnabar = 1e-1 (mho/cm2)
+    gbar = 1e-1 (mho/cm2)
     alphaD = 0.05 (/ms)
     betaD = 0.02 (/ms)
     mam = 5 (mV)
@@ -102,7 +102,7 @@ ASSIGNED {
 ? currents
 BREAKPOINT {
     SOLVE scheme1 METHOD sparse
-    gna = gnabar*O  
+    gna = gbar*O  
     ina = gna*(v - ena)
     jina17 = ina
 }

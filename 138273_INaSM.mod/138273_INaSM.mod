@@ -4,7 +4,7 @@ TITLE Sodium channel
 NEURON {
 	SUFFIX INaSM
 	USEION na READ ena WRITE ina
-	RANGE gnamax, ina
+	RANGE gbar, ina
 }
 
 UNITS {
@@ -13,7 +13,7 @@ UNITS {
 }
 
 PARAMETER {
-	gnamax=1.0 (mho/cm2)
+	gbar=1.0 (mho/cm2)
 }
 
 ASSIGNED {
@@ -32,7 +32,7 @@ STATE {
 
 BREAKPOINT {
     SOLVE states METHOD cnexp
-    ina=gnamax*m*m*m*h*(v-ena)
+    ina=gbar*m*m*m*h*(v-ena)
 }
 
 INITIAL {

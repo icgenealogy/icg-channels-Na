@@ -27,7 +27,8 @@ UNITS {
 }
 
 PARAMETER {
-	gsd  = 0.0004   (mho/cm2)
+	:gsd  = 0.0004   (mho/cm2)
+	gsd  = 1.0   (mho/cm2)
 	gsr  = 0.0   (mho/cm2)
 	V0sd = -40      (mV)
 	zsd = 0.1		(/mV)

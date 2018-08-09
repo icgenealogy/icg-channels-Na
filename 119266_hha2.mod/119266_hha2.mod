@@ -14,7 +14,7 @@ NEURON {
 	USEION na READ ena WRITE ina 
 	USEION k READ ek WRITE ik
 	NONSPECIFIC_CURRENT il
-	RANGE gnabar, gkbar, gl, el,ik,ina
+	RANGE gbar, gkbar, gl, el,ik,ina
 	RANGE ar2, vhalfs
 	GLOBAL inf, tau, taumin
 }
@@ -40,7 +40,7 @@ PARAMETER {   : parameters that can be entered when function is called in cell-s
         vvs  = 2     (mV)       :slope for "s" attenuation system
         vhalfr = -60 (mV)       :half potential for "s" attenuation system
         vvh=-58		(mV) 
-        gnabar = 1.0   (mho/cm2)  :initialized conductances
+        gbar = 1.0   (mho/cm2)  :initialized conductances
 	gkbar = 0.0    (mho/cm2)  :actual values set in hoc code
 	gl = 0       (mho/cm2)  : keep this to zero if using the NEURON pas mechanism
 	el = -70.0   (mV)       :steady state 
@@ -77,7 +77,7 @@ INITIAL {                       : initialize the following parameter using state
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ina = gnabar*m*m*h*s*(v - ena) :Sodium current
+	ina = gbar*m*m*h*s*(v - ena) :Sodium current
 	ik = gkbar*n*n*(v - ek)        :Potassium current
 	il = gl*(v - el)               :leak current
 }

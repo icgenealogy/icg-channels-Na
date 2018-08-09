@@ -11,7 +11,7 @@ ASSIGNED {
 
 PARAMETER {
 	:erev 		= 60       (mV)
-	gmax 		= 0.030     (umho)
+	gbar 		= 0.030     (umho)
         vrest           = 0     : added in with bills change to borg
 
 	mvalence 	=  4.

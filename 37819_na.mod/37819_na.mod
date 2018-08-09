@@ -30,7 +30,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 NEURON {
   SUFFIX naz
   USEION na READ ena WRITE ina
-  RANGE m, h, gna, gmax, i
+  RANGE m, h, gna, gbar, i
   GLOBAL tha, thi1, thi2, qa, qi, qinf, thinf
   GLOBAL minf, hinf, mtau, htau
   GLOBAL Ra, Rb, Rd, Rg
@@ -38,7 +38,7 @@ NEURON {
 }
 
 PARAMETER {
-  gmax = 1000   	(pS/um2)	: 0.12 mho/cm2
+  gbar = 1000   	(pS/um2)	: 0.12 mho/cm2
   vshift = -10	(mV)		: voltage shift (affects all)
   
   tha  = -35	(mV)		: v 1/2 for act		(-42)
@@ -94,8 +94,8 @@ INITIAL {
 
 BREAKPOINT {
   SOLVE states METHOD cnexp
-  gna = tadj*gmax*m*m*m*h
-  i = (1e-4) * gna * (v - ena)
+  gna = tadj*gbar*m*m*m*h
+  i = 1 * gna * (v - ena)
   ina = i
 } 
 

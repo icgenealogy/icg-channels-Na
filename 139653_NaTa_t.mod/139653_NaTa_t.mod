@@ -3,7 +3,7 @@
 NEURON	{
 	SUFFIX NaTa_t
 	USEION na READ ena WRITE ina
-	RANGE gNaTa_tbar, gNaTa_t, ina
+	RANGE gbar, gNaTa_t, ina
 }
 
 UNITS	{
@@ -13,7 +13,7 @@ UNITS	{
 }
 
 PARAMETER	{
-	gNaTa_tbar = 0.00001 (S/cm2)
+	gbar = 0.00001 (S/cm2)
 }
 
 ASSIGNED	{
@@ -38,7 +38,7 @@ STATE	{
 
 BREAKPOINT	{
 	SOLVE states METHOD cnexp
-	gNaTa_t = gNaTa_tbar*m*m*m*h
+	gNaTa_t = gbar*m*m*m*h
 	ina = gNaTa_t*(v-ena)
 }
 

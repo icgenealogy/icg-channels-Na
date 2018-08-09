@@ -12,7 +12,7 @@ References:
 	Science, 287:295-300, 2000.
 
 			soma	axon-lacking dend	axon-bearing dend
-Na+	gmax	    107 ps/um2	   117 ps/um2		   107 ps/um2
+Na+	gbar	    107 ps/um2	   117 ps/um2		   107 ps/um2
 	slope 	    10.9 mV/e	   11.2 mV/e		   11.2 mV/e
 	V1/2        -37.8 mV       -45.6 mV                -45.6 mV
 

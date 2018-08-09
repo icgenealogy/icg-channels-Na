@@ -16,7 +16,7 @@ UNITS {
 NEURON {
  	SUFFIX NaSm
 	USEION na READ ena WRITE ina
-	RANGE gnasmbar, gnasm, minf, mtau
+	RANGE gbar, gnasm, minf, mtau
 }
  
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
@@ -24,7 +24,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
   	
 	:ena	= 40	(mV)
-	gnasmbar= 0.00011 (mho/cm2) :0.11mS
+	gbar= 0.00011 (mho/cm2) :0.11mS
 	Etemp	= 21	:delord correspondence 11/15/06
 	Vsm	= -16.0
 	ksm	= 9.4
@@ -51,7 +51,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gnasm = gnasmbar*m
+        gnasm = gbar*m
         ina = gnasm*(v - ena)
   
 }

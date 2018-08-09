@@ -4,7 +4,7 @@ TITLE HH sodium channel
 NEURON {
 	SUFFIX HHna
 	USEION na READ ena WRITE ina
-	RANGE gnabar, ina
+	RANGE gbar, ina
 	GLOBAL minf, hinf, mtau, htau
 }
 
@@ -14,7 +14,7 @@ UNITS {
 }
 
 PARAMETER {
-	gnabar=0.0026 (mho/cm2) <0,1e9>
+	gbar=0.0026 (mho/cm2) <0,1e9>
 	}
 
 STATE {
@@ -39,7 +39,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ina = gnabar*m*m*m*h*(v - ena)
+	ina = gbar*m*m*m*h*(v - ena)
 }
 
 DERIVATIVE states {

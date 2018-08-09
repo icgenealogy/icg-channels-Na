@@ -18,7 +18,7 @@ NEURON {
     SUFFIX NaL
     USEION na READ ena,nai WRITE ina
     RANGE gna,inaL
-    GLOBAL gmax_naL
+    GLOBAL gbar_naL
 }
 
 PARAMETER {
@@ -32,14 +32,14 @@ PARAMETER {
 
 ASSIGNED { 
     ina (mA/cm2)
-    gmax_naL
+    gbar_naL
 }
 
 BREAKPOINT {
-    ina	= gna*gmax_naL*(v-ena)
+    ina	= gna*gbar_naL*(v-ena)
     inaL = ina
 }
 
 INITIAL {
-    gmax_naL = 1
+    gbar_naL = 1
 }

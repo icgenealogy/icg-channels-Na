@@ -5,7 +5,7 @@ TITLE HH sodium channel
 NEURON {
 	SUFFIX na_sej
 	USEION na READ ena WRITE ina
-	RANGE gnasejbar, ina, gna
+	RANGE gbar, ina, gna
 
 }
 
@@ -19,7 +19,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
         v (mV)
         dt (ms)
-	gnasejbar=.086 (mho/cm2) <0,1e9>
+	gbar=.086 (mho/cm2) <0,1e9>
         ena = 55 (mV)
 }
 
@@ -43,7 +43,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	gna = gnasejbar*m*m*m*h
+	gna = gbar*m*m*m*h
         ina = gna*v*(15/135 - exp(-v/25.4))/(1-exp(-v/25.4))
 }
 

@@ -5,7 +5,7 @@ TITLE  Na persistent channel
 NEURON {
 	  SUFFIX nap
 	  USEION na READ ena WRITE ina
-    RANGE  gnabar,vhalf, K, g, gmax
+    RANGE  gbar,vhalf, K, g, gmax
 }
 
 UNITS {
@@ -17,8 +17,8 @@ PARAMETER { : parameters that can be entered when function is called in cell-set
 	  v               (mV)
     ena = 50        (mV) : Na reversal potential  (reset in cell-setup.hoc)
 	  K = 1           (mV)              : slope of steady state variable
-    :	gnabar = 0.001e-2 (mho/cm2) : suggested conductance, 1 percent of the transient Na current
-	  gnabar = 1.0      (mho/cm2)          : initialized conductance
+    :	gbar = 0.001e-2 (mho/cm2) : suggested conductance, 1 percent of the transient Na current
+	  gbar = 1.0      (mho/cm2)          : initialized conductance
 	  vhalf  = -51.90 (mV)                : half potential
 }	
 
@@ -37,7 +37,7 @@ INITIAL {
 
 BREAKPOINT {
     states(v)
-    g = gnabar*n*n*n
+    g = gbar*n*n*n
 	  ina = g*(v-ena)
     if (g > gmax) {
         gmax = g

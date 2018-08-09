@@ -12,7 +12,7 @@ UNITS {
 NEURON {
         SUFFIX NaFcvode
 	USEION na READ ena WRITE ina
-        RANGE  gnabar, gna
+        RANGE  gbar, gna
 } 
  
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
@@ -21,7 +21,7 @@ PARAMETER {
         v (mV)
         celsius = 37 (degC)
         
-        gnabar	= 7.5 (mho/cm2)
+        gbar	= 7.5 (mho/cm2)
         :enacvode	= 45 (mV)
 	mon = 1
 	hon = 1
@@ -39,7 +39,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE state METHOD cnexp
-        gna = gnabar *m*m* m*h 
+        gna = gbar *m*m* m*h 
 	ina = gna* (v-ena)
 }
  

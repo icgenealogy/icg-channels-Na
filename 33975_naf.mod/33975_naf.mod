@@ -12,7 +12,7 @@ ASSIGNED {
 }
 PARAMETER {
 	:erev 		= 55.  (mV)
-	gmax 		= 0.035    (mho/cm2)
+	gbar 		= 0.035    (mho/cm2)
         vrest           = 0.
 
 	exptemp		= 27
@@ -66,7 +66,7 @@ ENDCOMMENT
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
-	RANGE gmax, g, i
+	RANGE gbar, g, i
 	GLOBAL Inf, Tau, vmin, vmax, vrest, qq10
 } : end NEURON
 
@@ -101,7 +101,7 @@ BREAKPOINT {
 
   SOLVE states METHOD cnexp
   mh(v)
-  g = gmax * Inf[0]*Inf[0]*Inf[0] * h
+  g = gbar * Inf[0]*Inf[0]*Inf[0] * h
 
   i = g*(v-ena) 
   ina=i

@@ -37,7 +37,7 @@ UNITS {
 
 PARAMETER {
 
-	gnabar = 3.0	(mho/cm2)   :3.0
+	gbar = 3.0	(mho/cm2)   :3.0
 	gnapbar	= 0.0	(mho/cm2)
 	gksbar   = 0.0 	(mho/cm2) :0.08
 	gkfbar = 0.0 :0.02-0.04
@@ -76,7 +76,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ina = gnabar * m*m*m*h * (v - ena)
+	ina = gbar * m*m*m*h * (v - ena)
 	inap = gnapbar * p*p*p * (v - ena)
 	iks   = gksbar * s* (v - ek)
 	ikf = gkfbar*n*n*n*n*(v-ek)
