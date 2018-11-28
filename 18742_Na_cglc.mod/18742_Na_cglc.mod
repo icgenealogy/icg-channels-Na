@@ -5,7 +5,7 @@ TITLE Slowly recovering Na channel
 NEURON {
 	SUFFIX Na_cglc
 	USEION na READ ena WRITE ina
-	RANGE gbar, ina
+	RANGE gnabar, ina
 	GLOBAL minf, hinf, mtau, htau
 }
 
@@ -15,7 +15,7 @@ UNITS {
 }
 
 PARAMETER {
-	gbar=.120 (mho/cm2) <0,1e9>
+	gnabar=.120 (mho/cm2) <0,1e9>
 	
 }
 
@@ -41,7 +41,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ina = gbar*m*m*m*h*(v - ena)
+	ina = gnabar*m*m*m*h*(v - ena)
 }
 
 DERIVATIVE states {

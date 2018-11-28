@@ -7,7 +7,7 @@ TITLE  Na persistent channel
 NEURON {
 	SUFFIX nap
 	USEION na READ ena WRITE ina
-        RANGE  gbar,vhalf, K, ina
+        RANGE  gnabar,vhalf, K, ina
 
 }
 
@@ -19,8 +19,8 @@ UNITS {
 
 PARAMETER {            
 	K = 4.5            (mV)      : slope of steady state variable
-:	gbar = 0.001e-2 (mho/cm2) : suggested conductance, 1 percent of the transient Na current
-	gbar = 1.0        (mho/cm2)
+:	gnabar = 0.001e-2 (mho/cm2) : suggested conductance, 1 percent of the transient Na current
+	gnabar = 1.0        (mho/cm2)
 	vhalf  = -50.4    (mV)      : half potential
 }	
 
@@ -34,7 +34,7 @@ ASSIGNED {
 STATE { n }
 
 BREAKPOINT {
-	ina = gbar*n*n*n*(v-ena)
+	ina = gnabar*n*n*n*(v-ena)
 }
 
 INITIAL {

@@ -12,7 +12,7 @@ PARAMETER {
         celsius  = 37 (degC)
         dt (ms)
 	:erev 		= 45        (mV)
-	gbar 		= 0.1     (umho)
+	gmax 		= 0.1     (umho)
         vrest           = 0
 
 	mvalence 	= 4.3

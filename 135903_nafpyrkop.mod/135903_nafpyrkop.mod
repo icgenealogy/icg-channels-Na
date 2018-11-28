@@ -23,7 +23,7 @@ ENDCOMMENT
 NEURON {
 	SUFFIX NafPyrKop
 	USEION na READ ena WRITE ina
-	RANGE  bk, gbar, taom, taoh, taoi, minf, hinf, iinf
+	RANGE  bk, gmax, taom, taoh, taoi, minf, hinf, iinf
 }
 	
 UNITS {
@@ -33,7 +33,7 @@ UNITS {
 }
 
 PARAMETER {
-    gbar = 32.0 (mS/cm2)
+    gmax = 32.0 (mS/cm2)
     :ena  = 55.0 (mV)
     bk   =  0.0  (1)
 }
@@ -63,7 +63,7 @@ BREAKPOINT {
 
 	SOLVE states METHOD cnexp
 	
-	ina = 1 * gbar * m^3 * h * ii * (v-ena)
+	ina = (1e-3) * gmax * m^3 * h * ii * (v-ena)
 }
 
 DERIVATIVE states { 

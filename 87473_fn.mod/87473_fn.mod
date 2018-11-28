@@ -23,7 +23,7 @@ NEURON {
 	SUFFIX fn
 	USEION na READ ena WRITE ina
 	USEION k READ ek WRITE ik
-	RANGE gbar, gkbar, gkmodbar
+	RANGE gnabar, gkbar, gkmodbar
 	RANGE fastNashift, vha, vhb
 	RANGE am, an, lamb
 	RANGE minf, ninf, ntau
@@ -38,7 +38,7 @@ UNITS {
 
 PARAMETER { 
 	fastNashift = 0	(mV)	: -3.5 (mV)
-	gbar = 1.0	(mho/cm2)
+	gnabar = 1.0	(mho/cm2)
 	gkbar = 0.0	(mho/cm2)
 	am = 0.055	(/mV)
 	vhm = -33	(mV)
@@ -80,9 +80,9 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	totna = gbar * minf^3 * (1-n) * ( v - ena ) 
+	totna = gnabar * minf^3 * (1-n) * ( v - ena ) 
 	totk = gkbar * n^4 * ( v - ek )
-	ina = gbar * minf^3 * (1-n) * ( v - ena ) 
+	ina = gnabar * minf^3 * (1-n) * ( v - ena ) 
 	ik = gkbar * n^4 * ( v - ek )
 	if (tea > 0) {
 		: to simulate TEA wash, a K-DR channel blocker

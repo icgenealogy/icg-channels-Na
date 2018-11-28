@@ -19,11 +19,11 @@ UNITS {
 NEURON {
         SUFFIX naf
         USEION na READ ena WRITE ina
-        RANGE  gbar, ina, mshift, hshift
+        RANGE  gnabar, ina, mshift, hshift
 }
  
 PARAMETER {
-    gbar   =   1.5 	(S/cm2)	: 1.5 in soma, 0.0195 in all dends
+    gnabar   =   1.5 	(S/cm2)	: 1.5 in soma, 0.0195 in all dends
 
 	mvhalf = -23.9		(mV)	: Martina/Jonas 1997 Table 1 (Pyr. cells)
 	mslope = -11.8		(mV)	: Martina/Jonas 1997 Table 1 (Pyr. cells)
@@ -50,7 +50,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE state METHOD cnexp
-        gna = gbar * m * m * m  * h
+        gna = gnabar * m * m * m  * h
         ina = gna * ( v - ena )
 }
  

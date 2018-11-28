@@ -7,7 +7,7 @@ COMMENT
  The Q10 measured from Sah (for the peak conductance)
      temp = [17.5,20,22.5,26.5], log(INa) = [0.65,0.92,1.03,1.22], INa = [1.9155,2.5093,2.8011,3.3872]
      slope = 0.1581 nA/degC
-     Q10 = gbarQ10 = 1.581 nA/10degC
+     Q10 = gmaxQ10 = 1.581 nA/10degC
      rate_k = exp(ln(Q10)*((1/296)-(1/309))/((1/292)-(1/302)))=1.78
 
 ENDCOMMENT

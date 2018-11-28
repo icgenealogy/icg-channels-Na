@@ -19,11 +19,11 @@ NEURON {
 	USEION na READ ena WRITE ina
 	USEION k READ ek WRITE ik
 	NONSPECIFIC_CURRENT il
-	RANGE gbar, gkbar, gl, el, NNa, NK, Nn, Nm, Nh, next_evm, next_evh, next_evn
+	RANGE gnabar, gkbar, gl, el, NNa, NK, Nn, Nm, Nh, next_evm, next_evh, next_evn
 }
  
 PARAMETER {
-	gbar = .12 (S/cm2)	<0,1e9>
+	gnabar = .12 (S/cm2)	<0,1e9>
 	gkbar = 0.0 (S/cm2)	<0,1e9>
 	gl = 0.0 (S/cm2)	<0,1e9>
 	el = -54.3 (mV)
@@ -63,7 +63,7 @@ BREAKPOINT {
 	m = Nm / (NNa*3)
 	h = Nh / NNa
 	n = Nn / (NK*4)
-	ina = gbar*m*m*m*h*(v - ena)
+	ina = gnabar*m*m*m*h*(v - ena)
 	ik = gkbar*n*n*n*n*(v - ek)      
 	il = gl*(v - el)
 }

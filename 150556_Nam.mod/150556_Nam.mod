@@ -21,7 +21,7 @@ UNITS {
 NEURON {
  	SUFFIX Nam
 	USEION na READ ena WRITE ina
-	RANGE gbar, gna, minf, hinf, ah, Bh
+	RANGE gnabar, gna, minf, hinf, ah, Bh
 }
  
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
@@ -29,7 +29,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
   	
 	:ena	= 55	(mV)
-	gbar	= 0.035 (mho/cm2) : 35mS
+	gnabar	= 0.035 (mho/cm2) : 35mS
 	phi	= 5 < 0, 1e9 > : from delord 11/13/06 
 	Vam	= -28 :NOT the original value from wang and Buzsaki
 	Kam	= 1
@@ -60,7 +60,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gna = gbar*m^3*h
+        gna = gnabar*m^3*h
         ina = gna*(v - ena)
   
 }

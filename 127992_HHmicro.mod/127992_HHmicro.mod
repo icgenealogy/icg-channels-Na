@@ -29,7 +29,7 @@ NEURON {
     USEION k READ ek WRITE ik
     NONSPECIFIC_CURRENT il
     RANGE el
-    RANGE gbar, gkbar, gna, gk, gl
+    RANGE gnabar, gkbar, gna, gk, gl
     RANGE m0h0,m1h0,m2h0,m3h0,m0h1,m1h1,m2h1,m3h1
     RANGE n0, n1, n2, n3, n4
     RANGE gamma_na, gamma_k
@@ -41,7 +41,7 @@ NEURON {
 
 
 PARAMETER {
-    gbar = 0.12   (S/cm2)     : maximum sodium conductance
+    gnabar = 0.12   (S/cm2)     : maximum sodium conductance
     gkbar  = 0.0  (S/cm2)     : maximum potassium conductance
     gl     = 0.0 (S/cm2)     : maximum leakage conductance
     el       = -54.3 (mV)       : leakage reversal potential
@@ -101,7 +101,7 @@ INITIAL {
     h = 0
     n = 0
     
-    Nna = ceil(((1e-8)*area)*(gbar)/((1e-12)*gamma_na))   : area in um2 -> 1e-8*area in cm2; gbar in S/cm2; gamma_na in pS -> 1e-12*gamma_na in S
+    Nna = ceil(((1e-8)*area)*(gnabar)/((1e-12)*gamma_na))   : area in um2 -> 1e-8*area in cm2; gnabar in S/cm2; gamma_na in pS -> 1e-12*gamma_na in S
     Nk = ceil(((1e-8)*area)*(gkbar)/((1e-12)*gamma_k))   : area in um2 -> 1e-8*area in cm2; gkbar in S/cm2; gamma_k in pS -> 1e-12*gamma_k in S
     
     VERBATIM

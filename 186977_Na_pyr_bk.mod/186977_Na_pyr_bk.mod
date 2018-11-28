@@ -62,8 +62,8 @@ STATE {
 BREAKPOINT { 
 	settables(v) 
 	SOLVE states METHOD cnexp
-	:ina =1*gbar * minf * minf * minf * h * (v - ena)  :Steady state activation approximation
-    ina =1*gbar * m * m* m * h * (v - ena)            :Dynamic activation
+	:ina =(1e-4)*gbar * minf * minf * minf * h * (v - ena)  :Steady state activation approximation
+    ina =(1e-4)*gbar * m * m* m * h * (v - ena)            :Dynamic activation
 } 
 
 INITIAL {

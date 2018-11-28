@@ -6,7 +6,7 @@ TITLE HH fast sodium channel
 NEURON {
 	SUFFIX nafast
 	USEION na READ ena WRITE ina
-	RANGE gbar, ina
+	RANGE gnabar, ina
 	GLOBAL minf, hinf, mtau, htau
 }
 
@@ -20,7 +20,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
 	v (mV)
 	dt (ms)
-	gbar = 0.120 (mho/cm2) <0,1e9>
+	gnabar = 0.120 (mho/cm2) <0,1e9>
 	ena = 45 (mV)
 }
 STATE {
@@ -42,7 +42,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ina = gbar*m*m*m*h*(v - ena)
+	ina = gnabar*m*m*m*h*(v - ena)
 }
 
 DERIVATIVE states {

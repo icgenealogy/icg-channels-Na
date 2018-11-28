@@ -23,7 +23,7 @@ UNITS {
 NEURON {
         SUFFIX sjg_na
         USEION na READ ena WRITE ina
-        RANGE gbar, gna, ina, sjgena
+        RANGE gnabar, gna, ina, sjgena
         GLOBAL hinf, minf, htau, mtau, pinf, ptau
 }
 
@@ -33,7 +33,7 @@ PARAMETER {
         v (mV)
         dt (ms)
         :sjgena (mV)
-        gbar =  0.07958 (mho/cm2) <0,1e9>
+        gnabar =  0.07958 (mho/cm2) <0,1e9>
     	fi = 0.8448 <0,1>	: fast inactivating
     	si = 0.0352 <0,1>	: slow inactivation
 }
@@ -55,7 +55,7 @@ LOCAL mexp, hexp, pexp
 BREAKPOINT {
 	SOLVE states
     
-    gna = gbar*((m^3* 0.005) + (m^3*h*0.97) + (m^3*p*0.025))
+    gna = gnabar*((m^3* 0.005) + (m^3*h*0.97) + (m^3*p*0.025))
     ina = gna*(v - ena)
 
 }

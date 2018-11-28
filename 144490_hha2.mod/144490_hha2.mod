@@ -13,7 +13,7 @@ NEURON {
 	  USEION na READ ena WRITE ina
 	  USEION k READ ek WRITE ik
 	  NONSPECIFIC_CURRENT il
-	  RANGE gbar, gkbar, gl, el, gna, gk, gmax
+	  RANGE gnabar, gkbar, gl, el, gna, gk, gmax
 	  RANGE ar2, vhalfs
 	  RANGE inf, tau
 	  RANGE taus
@@ -40,10 +40,10 @@ PARAMETER {                     :parameters that can be entered when function is
     vvs  = 2     (mV)       :slope for "s" attenuation system
     vhalfr = -60 (mV)       :half potential for "s" attenuation system
 	  W = 0.016    (/mV)      :this 1/61.5 mV
-    :	gbar = 0.2 (mho/cm2)  :suggested conductance values
+    :	gnabar = 0.2 (mho/cm2)  :suggested conductance values
     :	gkbar = 0.12 (mho/cm2)
     :	gl = 0.0001  (mho/cm2)
-    gbar = 1.0   (mho/cm2)  :initialized conductances
+    gnabar = 1.0   (mho/cm2)  :initialized conductances
 	  gkbar = 0.0    (mho/cm2)  :actual values set in cell-setup.hoc
 	  gl = 0       (mho/cm2)
 	  ena = 60     (mV)       :Na reversal potential (also reset in
@@ -70,7 +70,7 @@ ASSIGNED {			: parameters needed to solve DE
 
 BREAKPOINT {
 	  SOLVE states METHOD cnexp
-    gna = gbar*m*m*h*s
+    gna = gnabar*m*m*h*s
 	  ina = gna*(v - ena)                :Sodium current
     gk =  gkbar*n*n
 	  ik = gk*(v - ek)                   :Potassium current
@@ -86,7 +86,7 @@ INITIAL {			:initialize the following parameter using states()
     h = inf[1]
     n = inf[2]
 	  s=1
-    gna = gbar*m*m*h*s
+    gna = gnabar*m*m*h*s
 	  ina = gna*(v - ena)                :Sodium current
     gk =  gkbar*n*n
 	  ik = gk*(v - ek)                   :Potassium current

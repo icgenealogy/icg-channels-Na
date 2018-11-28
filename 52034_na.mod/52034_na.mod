@@ -2,7 +2,7 @@
 
 PARAMETER {
 	:erev 		= 45        (mV)
-	gbar 		= 0.1     (umho)
+	gmax 		= 0.1     (umho)
 
 : ? Cable uses gchanbar in S/cm2 ?
 : Probably S/cm2 here as well
@@ -82,7 +82,7 @@ NEURON {
 	USEION na READ ena WRITE ina
 	:USEION k WRITE ik
 	:USEION ca READ cao,cai  WRITE ica
-	RANGE gbar, g, i, mbaserate
+	RANGE gmax, g, i, mbaserate
 	GLOBAL Inf, Tau, Mult, Add, vmin, vmax
 } : end NEURON
 
@@ -103,7 +103,7 @@ COMMENT
 ** Parameter values should come from files specific to particular channels
 PARAMETER {
 	:erev 		= 0    (mV)
-	gbar 		= 0    (mho/cm^2)
+	gmax 		= 0    (mho/cm^2)
 
 	mvalence 	= 0
 	mgamma 		= 0
@@ -184,7 +184,7 @@ BREAKPOINT {
 
 	:			       mexp			    hexp
 	: Note that mexp_val is now = m      and hexp_val is now = h 
-	g = gbar * mexp_val * hexp_val
+	g = gmax * mexp_val * hexp_val
 	iassign()
 } : end BREAKPOINT
 

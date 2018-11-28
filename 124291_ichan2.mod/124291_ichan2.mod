@@ -26,7 +26,7 @@ SUFFIX ichan2
 USEION na READ ena WRITE ina
 USEION k READ ek WRITE ik
 RANGE  gnat, gkf, gks
-RANGE gbar, gkfbar, gksbar
+RANGE gnatbar, gkfbar, gksbar
 RANGE gl, el
 RANGE minf, mtau, hinf, htau, nfinf, nftau, inat, ikf, nsinf, nstau, iks
 }
@@ -38,7 +38,7 @@ PARAMETER {
         celsius = 6.3 (degC)
         dt (ms) 
         ena  (mV)
-	gbar = 1.0 (mho/cm2)   
+	gnatbar = 1.0 (mho/cm2)   
         :ekf  (mV)
 	gkfbar = 0.0 (mho/cm2)
         ek  (mV)
@@ -72,7 +72,7 @@ ASSIGNED {
 ? currents
 BREAKPOINT {
 	SOLVE states
-        gnat = gbar*m*m*m*h  
+        gnat = gnatbar*m*m*m*h  
         ina = gnat*(v - ena)
         gkf = gkfbar*nf*nf*nf*nf
         ikf = gkf*(v-ek)

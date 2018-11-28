@@ -47,7 +47,7 @@ NEURON {
     USEION na READ ena WRITE ina
     USEION k READ ek WRITE ik
     RANGE gnat, gkf
-    RANGE gbar, gkfbar
+    RANGE gnatbar, gkfbar
     RANGE gl, el
     RANGE minf, mtau, hinf, htau, sinf, stau, nfinf, nftau, inat, m, h, s
 }
@@ -61,7 +61,7 @@ PARAMETER {
     celsius = 6.3 (degC)
     dt (ms) 
     ena  (mV)
-    gbar = 1.0 (mho/cm2)   
+    gnatbar = 1.0 (mho/cm2)   
     ek  (mV)
     gkfbar = 0.0 (mho/cm2)
     gl = 0.0 (mho/cm2)    
@@ -90,7 +90,7 @@ STATE {
 
 BREAKPOINT {
     SOLVE states
-    gnat = gbar*m*m*m*h*s  
+    gnat = gnatbar*m*m*m*h*s  
     ina = gnat*(v - ena)
     gkf = gkfbar*nf*nf*nf*nf
     ik = gkf*(v-ek)

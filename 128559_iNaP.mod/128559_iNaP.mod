@@ -26,7 +26,7 @@ ENDCOMMENT
 NEURON {
 	SUFFIX iNaP
 	USEION na READ ena WRITE ina
-	RANGE gbar, vtraub, vsm, vsh, gamma
+	RANGE gnabar, vtraub, vsm, vsh, gamma
 	RANGE m_inf, h_inf
 	RANGE tau_m, tau_h
 	RANGE ina 
@@ -39,7 +39,7 @@ UNITS {
 }
 
 PARAMETER {
-	gbar	= .00029 	(mho/cm2)
+	gnabar	= .00029 	(mho/cm2)
 	ena			(mV)
 	celsius			(degC)
 	v               	(mV)
@@ -65,7 +65,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ina = gbar * m*h * (v - ena)
+	ina = gnabar * m*h * (v - ena)
 }
 
 DERIVATIVE states {

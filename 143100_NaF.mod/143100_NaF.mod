@@ -13,13 +13,13 @@ UNITS {
 NEURON {
  SUFFIX NaF
  USEION na READ ena WRITE ina
- RANGE gbar, iNa
+ RANGE gmax, iNa
 }
 
 PARAMETER {
  v (mV)
  dt (ms)
- gbar  = 0.001 (mho/cm2)
+ gmax  = 0.001 (mho/cm2)
  iNa  = 0.0 (mA/cm2)
  ena (mV)
 
@@ -60,7 +60,7 @@ ASSIGNED {
 
 BREAKPOINT {
  SOLVE states METHOD cnexp
- ina  = gbar*m*m*m*h*s*(v-ena)
+ ina  = gmax*m*m*m*h*s*(v-ena)
  iNa = ina
 }
 

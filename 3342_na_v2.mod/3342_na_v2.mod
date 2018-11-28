@@ -78,7 +78,7 @@ INITIAL {
 BREAKPOINT {
         SOLVE states  METHOD cnexp
         gna = gbar*m*m*m*h
-	ina = 1 * gna * (v - ena)
+	ina = (1e-4) * gna * (v - ena)
 } 
 
 DERIVATIVE states {   :Computes state variables m, h, and n 

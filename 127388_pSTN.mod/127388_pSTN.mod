@@ -12,7 +12,7 @@ NEURON {
 	USEION k READ ki, ko WRITE ik
 	USEION na READ nai, nao WRITE ina
 	RANGE ina, ik, ica
-	RANGE gbar, ena, m_inf, h_inf, tau_h, tau_m		 : fast sodium
+	RANGE gnabar, ena, m_inf, h_inf, tau_h, tau_m		 : fast sodium
 	RANGE gkdrbar, ek, n_inf, tau_n, ikD                   : delayed K rectifier
 	RANGE gl, el, ilk                                      : leak
 	RANGE gcatbar, eca, p_inf, tau_p, q_inf, tau_q	       : T-type ca current
@@ -38,7 +38,7 @@ PARAMETER {
 	celsius		(degC)
 
 :Fast Na channel
-	gbar   = 49e-3 (S/cm2) 
+	gnabar   = 49e-3 (S/cm2) 
 	theta_m = -40 (mV)
 	theta_h = -45.5 (mV) 
 	k_m = -8 (mV)    
@@ -216,7 +216,7 @@ BREAKPOINT {
 	eca = -(R*T)/FARADAY*log(cai/cao)*1000/2
 	:printf("%f %f %f\n", ena, ek, eca)
 
-	ina   = gbar * m*m*m*h * (v - ena)
+	ina   = gnabar * m*m*m*h * (v - ena)
 	ikD   = gkdrbar * n^4 * (v - ek)
 	ikA   = gkabar * a*a*b * (v - ek)
 	ikAHP   = gkcabar * (v - ek)*r^(power_r)

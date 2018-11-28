@@ -17,12 +17,12 @@ UNITS {
 NEURON {
         SUFFIX Nap_No
         USEION na READ ena WRITE ina
-        RANGE gbar, gna
+        RANGE gnamax, gna
         RANGE pinf, ptau
 }
  
 PARAMETER { 
-        gbar = 0.01 (S/cm2)   <0,1e9>
+        gnamax = 0.01 (S/cm2)   <0,1e9>
 }
  
 STATE {
@@ -41,7 +41,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gna = gbar*p*p*p
+        gna = gnamax*p*p*p
 		ina = gna*(v - ena)
 }
  

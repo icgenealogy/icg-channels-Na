@@ -10,7 +10,7 @@ ENDCOMMENT
 NEURON { 
 	SUFFIX GrG_Nar
 	USEION na READ ena WRITE ina 
-	RANGE gbar, ina, g
+	RANGE gnabar, ina, g
 	RANGE Aalpha_s,Abeta_s,V0alpha_s,V0beta_s,Kalpha_s,Kbeta_s 
         RANGE Shiftalpha_s,Shiftbeta_s,tau_s,s_inf
 	RANGE Aalpha_f,Abeta_f,V0alpha_f,V0beta_f,Kalpha_f, Kbeta_f
@@ -47,7 +47,7 @@ PARAMETER {
 	Kbeta_f = 16.05379 (mV)
 
 	v (mV) 
-	gbar= 0.0005 (mho/cm2)
+	gnabar= 0.0005 (mho/cm2)
 	ena = 87.39 (mV) 
 	celsius = 30 (degC) 
 } 
@@ -81,7 +81,7 @@ INITIAL {
  
 BREAKPOINT { 
 	SOLVE states METHOD derivimplicit 
-	g = gbar*s*f
+	g = gnabar*s*f
 	ina = g*(v - ena)
 
 	alpha_s = alp_s(v)

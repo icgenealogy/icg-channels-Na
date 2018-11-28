@@ -7,7 +7,7 @@ COMMENT
  conductance) was 1.5
 
  How the q10 works: There is a q10 for the rates (alpha and beta's)
- called Q10 and a Q10 for the maximum conductance called gbarQ10.  The
+ called Q10 and a Q10 for the maximum conductance called gmaxQ10.  The
  q10s should have been measured at specific temperatures temp1 and
  temp2 (that are 10degC apart). Ideally, as Q10 is temperature
  dependant, we should know these two temperatures.  We are going to
@@ -29,7 +29,7 @@ NEURON {
 	SUFFIX Na
 	USEION na READ nai,ena WRITE ina
 	RANGE gna, m, h
-	GLOBAL rest,activate_Q10,Q10,gbarQ10,rate_k,gbar_k,temp1,temp2,tempb
+	GLOBAL rest,activate_Q10,Q10,gmaxQ10,rate_k,gmax_k,temp1,temp2,tempb
 }
 
 PARAMETER {
@@ -43,7 +43,7 @@ PARAMETER {
 	
 	activate_Q10 = 1
 	Q10 = 1.980105147e+00
-	gbarQ10 = 1.980105147e+00
+	gmaxQ10 = 1.980105147e+00
 	temp1 = 19.0 (degC)
 	temp2 = 29.0 (degC)
 	tempb = 23.0 (degC)
@@ -60,12 +60,12 @@ ASSIGNED {
 	alphah (/ms)
 	betah (/ms)
 	rate_k
-	gbar_k
+	gmax_k
 }
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	ina  = (gna*gbar_k)*m*m*h*(v-ena)
+	ina  = (gna*gmax_k)*m*m*h*(v-ena)
 }
 
 UNITSOFF
@@ -78,13 +78,13 @@ INITIAL {
 	  ktemp1 = temp1+273.0
 	  ktemp2 = temp2+273.0
 	  rate_k = exp( log(Q10)*((1/ktempb)-(1/ktemp))/((1/ktemp1)-(1/ktemp2)) )
-	  gbar_k = exp( log(gbarQ10)*((1/ktempb)-(1/ktemp))/((1/ktemp1)-(1/ktemp2)) )
+	  gmax_k = exp( log(gmaxQ10)*((1/ktempb)-(1/ktemp))/((1/ktemp1)-(1/ktemp2)) )
 	}else{
 	  : Note, its not 1.0, as we have rescaled the kinetics
           :  (reverting the scaleing Traub did), the original is
           :  acheived using this rate
 	  rate_k = 1.60
-	  gbar_k = 1.60
+	  gmax_k = 1.60
 	}
         settables(v)
         m = alpham/(alpham+betam)

@@ -76,7 +76,7 @@ STATE { c1 c2 c3 o I1 I2 }
 BREAKPOINT {
 	SOLVE states METHOD sparse
 		g = gbar*o
-		ina = 1 * g*(v - ena)
+		ina = (1e-4) * g*(v - ena)
 }
 
 INITIAL { SOLVE states STEADYSTATE sparse}

@@ -90,7 +90,7 @@ STATE { c1 c2 c3 i1 i2 i3 i4 o }
 BREAKPOINT {
     SOLVE kin METHOD sparse
     gna = gbar*o
-:   ina = g*(v - ena)*1
+:   ina = g*(v - ena)*(1e-3)
     ina = gna*(v - ena)*(1e-4) 	: define  gbar as pS/um2 instead of mllimho/cm2
     ina_inax = gna*(v - ena)*(1e-4) 	: define  gbar as pS/um2 instead of mllimho/cm2   :to monitor
 

@@ -82,7 +82,7 @@ STATE { c1 c2 c3 i1 i2 i3 i4 o }
 BREAKPOINT {
     SOLVE kin METHOD sparse
     g = gbar*o
-    ina = g*(v - ena)*1
+    ina = g*(v - ena)*(1e-3)
 }
 
 INITIAL { SOLVE kin STEADYSTATE sparse }

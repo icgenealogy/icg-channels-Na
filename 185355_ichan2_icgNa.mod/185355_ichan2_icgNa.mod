@@ -71,7 +71,7 @@ USEION na READ ena WRITE ina			: Na current
 
 : range variable definition block,
 : i.e. variables that might change with space along a compartment / could be declared global in this case
-RANGE gbar, gkfbar, gksbar				: gbar values for Na, K(slow/fast)
+RANGE gnatbar, gkfbar, gksbar				: gbar values for Na, K(slow/fast)
 RANGE gl, el, ina, ik, il, ggabaa, igabaa, egabaa	: gbar and reversal poti for leak current	
 }
 
@@ -85,7 +85,7 @@ PARAMETER {
         :celsius = 6.3 (degC)
         :dt (ms) 
 
-        gbar = 1.0 (mho/cm2)   				: Na (gbar and reversal poti)
+        gnatbar = 1.0 (mho/cm2)   				: Na (gbar and reversal poti)
         ena  	(mV)	
 		
 	gkfbar 	(mho/cm2)				: K  (gbar(slow/fast), reversal is ek)
@@ -135,7 +135,7 @@ ASSIGNED {
 : This block is evaluated every time step. 
 BREAKPOINT {
 	SOLVE states					: here the state variables are updated 
-        gna = gbar*m*m*m*h  			: calculated g at timepoint t
+        gna = gnatbar*m*m*m*h  			: calculated g at timepoint t
         gkf = gkfbar*nf*nf*nf*nf
         gks = gksbar*ns*ns*ns*ns
 

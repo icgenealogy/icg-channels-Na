@@ -13,7 +13,7 @@ NEURON {
 	USEION na READ ena WRITE ina
 	USEION k READ ek WRITE ik
 	USEION ca READ cai, eca, cao WRITE ica
-	RANGE gbar, gkbar, gabar, gcabar, gkcbar
+	RANGE gnabar, gkbar, gabar, gcabar, gkcbar
 	RANGE m_inf, h_inf, n_inf, p_inf, q_inf, c_inf
 	RANGE tau_m, tau_h, tau_n, tau_p, tau_q, tau_c
 	RANGE m_exp, h_exp, n_exp, p_exp, q_exp, c_exp
@@ -31,7 +31,7 @@ UNITS {
 }
 
 PARAMETER {
-	gbar	= 0.04	(mho/cm2)
+	gnabar	= 0.04	(mho/cm2)
 	gkbar	= 0.0 (mho/cm2)
 	gabar	= 0.0	(mho/cm2)
 	gcabar	= 0.0	(mho/cm2)
@@ -82,7 +82,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states
-	ina = gbar * m*m*m*h * (v - ena)
+	ina = gnabar * m*m*m*h * (v - ena)
         idrk = gkbar * n*n*n*n * (v - ek)
         iak =  gabar * p*p*p*q * (v - ek)
         icak = gkcbar * ((cai / 0.001)/ (1 + (cai / 0.001))) * (v - ek)

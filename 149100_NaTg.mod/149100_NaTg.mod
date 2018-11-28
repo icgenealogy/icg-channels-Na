@@ -3,7 +3,7 @@
 NEURON	{
 	SUFFIX NaTg
 	USEION na READ ena WRITE ina
-	RANGE gbarTgbar, gbarTg, ina, vshifth, vshiftm, slopeh, slopem
+	RANGE gNaTgbar, gNaTg, ina, vshifth, vshiftm, slopeh, slopem
 }
 
 UNITS	{
@@ -13,7 +13,7 @@ UNITS	{
 }
 
 PARAMETER	{
-	gbarTgbar = 0.00001 (S/cm2)
+	gNaTgbar = 0.00001 (S/cm2)
 	vshifth = 0 (mV)
 	vshiftm = 0 (mV)
 	slopeh = 6
@@ -24,7 +24,7 @@ ASSIGNED	{
 	v	(mV)
 	ena	(mV)
 	ina	(mA/cm2)
-	gbarTg	(S/cm2)
+	gNaTg	(S/cm2)
 	mInf
 	mTau
 	mAlpha
@@ -42,8 +42,8 @@ STATE	{
 
 BREAKPOINT	{
 	SOLVE states METHOD cnexp
-	gbarTg = gbarTgbar*m*m*m*h
-	ina = gbarTg*(v-ena)
+	gNaTg = gNaTgbar*m*m*m*h
+	ina = gNaTg*(v-ena)
 }
 
 DERIVATIVE states	{

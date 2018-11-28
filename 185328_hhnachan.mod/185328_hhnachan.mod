@@ -4,7 +4,7 @@ TITLE HH sodium channel
 NEURON {
 	SUFFIX HHna
 	USEION na READ ena WRITE ina
-	RANGE gbar, ina
+	RANGE gnabar, ina
 	GLOBAL inf, ena
 }
 
@@ -19,7 +19,7 @@ PARAMETER {
 	v (mV)
 	celsius = 6.3	(degC)
 	dt (ms)
-	gbar=.120 (S/cm2)
+	gnabar=.120 (S/cm2)
 	ena = 50 (mV)
 }
 STATE {
@@ -39,7 +39,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states
-	ina = gbar*m*m*m*h*(v - ena)
+	ina = gnabar*m*m*m*h*(v - ena)
 }
 
 PROCEDURE states() {	: exact when v held constant

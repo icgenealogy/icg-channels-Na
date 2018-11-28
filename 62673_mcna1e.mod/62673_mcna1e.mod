@@ -5,7 +5,7 @@ TITLE Two-closed one-open state sodium channel model
 NEURON {
      SUFFIX MCna1
      USEION na READ ena WRITE ina
-     RANGE gbar, gna1, ina   
+     RANGE gna1bar, gna1, ina   
      GLOBAL cnt1, cnt2, Na_intern, Na_extern 
 }
 
@@ -16,7 +16,7 @@ UNITS {
 
 PARAMETER {
 
-     gbar=.120 (mho/cm2) <0,1e9> : though this parameter has the
+     gna1bar=.120 (mho/cm2) <0,1e9> : though this parameter has the
 : same units as conductance because of the Goldman-Hodgkin-Katz
 : formalism used here the real meaning of this value is
 : P*[Na_extern]*F*F/RT. The conversion factor from this parameter to the
@@ -51,7 +51,7 @@ INITIAL {
 
 BREAKPOINT {
      SOLVE states METHOD sparse
-     gna1 = gbar*O
+     gna1 = gna1bar*O
 
      ina = gna1*v*(Na_intern/Na_extern - exp(-v/25.4))/(1-exp(-v/25.4)) 
 : the Goldman-Hodgkin-Katz equation was used to determine current 

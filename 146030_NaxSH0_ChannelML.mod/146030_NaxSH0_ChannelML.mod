@@ -23,7 +23,7 @@ COMMENT
    /channelml/channel_type/authorList/modelTranslator/institution = UCL 
    /channelml/channel_type/authorList/modelTranslator/email = p.gleeson - at - ucl.ac.uk 
    /channelml/channel_type/current_voltage_relation/ohmic/@ion = na 
-   /channelml/channel_type/current_voltage_relation/ohmic/conductance/@default_gbar = 120 
+   /channelml/channel_type/current_voltage_relation/ohmic/conductance/@default_gmax = 120 
    /channelml/channel_type/current_voltage_relation/ohmic/conductance/rate_adjustments/q10_settings/@q10_factor = 2 
    /channelml/channel_type/current_voltage_relation/ohmic/conductance/rate_adjustments/q10_settings/@experimental_temp = 24 
    /channelml/channel_type/current_voltage_relation/ohmic/conductance/gate[1]/@power = 3 
@@ -120,7 +120,7 @@ NEURON {
     SUFFIX NaxSH0_ChannelML
     USEION na READ ena WRITE ina VALENCE 1 ? reversal potential of ion is read, outgoing current is written
             
-    RANGE gbar, gion
+    RANGE gmax, gion
     
     RANGE minf, mtau
     RANGE hinf, htau
@@ -129,7 +129,7 @@ NEURON {
 PARAMETER { 
       
 
-    gbar = 0.12 (S/cm2) ? default value, should be overwritten when conductance placed on cell
+    gmax = 0.12 (S/cm2) ? default value, should be overwritten when conductance placed on cell
     
 }
 
@@ -161,7 +161,7 @@ BREAKPOINT {
     SOLVE states METHOD cnexp
          
 
-    gion = gbar*((1*m)^3)*((1*h)^1)
+    gion = gmax*((1*m)^3)*((1*h)^1)
     ina = gion*(v - ena)
                 
 

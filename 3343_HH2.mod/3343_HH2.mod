@@ -19,7 +19,7 @@ NEURON {
 	SUFFIX hh2
 	USEION na READ ena WRITE ina
 	USEION k READ ek WRITE ik
-	RANGE gbar, gkbar, vtraub
+	RANGE gnabar, gkbar, vtraub
 	RANGE m_inf, h_inf, n_inf
 	RANGE tau_m, tau_h, tau_n
 	RANGE m_exp, h_exp, n_exp
@@ -32,7 +32,7 @@ UNITS {
 }
 
 PARAMETER {
-	gbar  = .003  (mho/cm2)
+	gnabar  = .003  (mho/cm2)
 	gkbar   = 0.0  (mho/cm2)
 
 	ena     = 50    (mV)
@@ -66,7 +66,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states
-	ina = gbar * m*m*m*h * (v - ena)
+	ina = gnabar * m*m*m*h * (v - ena)
 	ik  = gkbar * n*n*n*n * (v - ek)
 }
 

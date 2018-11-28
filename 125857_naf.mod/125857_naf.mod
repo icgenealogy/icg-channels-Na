@@ -8,7 +8,7 @@ NEURON {
 
 	SUFFIX naf
 	USEION na READ ena WRITE ina
-	RANGE gbar, ina
+	RANGE gnabar, ina
 }
 	
 UNITS {
@@ -20,7 +20,7 @@ UNITS {
 
 PARAMETER {
 
-    gbar  = 30 (mS/cm2)
+    gnabar  = 30 (mS/cm2)
     :ena  = 55 (mV)
 }
     
@@ -45,7 +45,7 @@ BREAKPOINT {
 
 	SOLVE states METHOD cnexp
 	
-	ina = 1 * gbar * minf^2 * h * (v-ena)
+	ina = (1e-3) * gnabar * minf^2 * h * (v-ena)
 }
 
 

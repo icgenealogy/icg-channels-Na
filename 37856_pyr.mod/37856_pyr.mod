@@ -41,7 +41,7 @@ NEURON {
 		NONSPECIFIC_CURRENT il
 
 		RANGE gna, gk, minf, hinf, ninf		: sodium channels and delayed rectifier
-		GLOBAL mtau, htau, ntau, gbar, gkbar	: time constants for sodium channels and delayed rectifier
+		GLOBAL mtau, htau, ntau, gnabar, gkbar	: time constants for sodium channels and delayed rectifier
 
         RANGE gkis, kis_a_inf, kis_i_inf	: slow inactivating potassium current
 		RANGE gkif, kif_a_inf, kif_i_inf	: fast inactivating potassium current
@@ -68,7 +68,7 @@ PARAMETER {
         dt (ms)
 		ek (mV)
         ena (mV)
-        gbar = 0.02857 (mho/cm2)	<0,1e9>
+        gnabar = 0.02857 (mho/cm2)	<0,1e9>
         gkbar = 0.0 (mho/cm2)	<0,1e9>
 		gkifbar = 0.0 (mho/cm2) <0,1e9>
         gkisbar = 0.0 (mho/cm2)
@@ -119,7 +119,7 @@ LOCAL mexp, hexp, nexp, kif_a_exp, kif_i_exp, kis_a_exp, kis_i_exp, kh_m_exp, kh
 ? currents
 BREAKPOINT {
     SOLVE states METHOD cnexp
-    	gna = gbar*m*m*h
+    	gna = gnabar*m*m*h
 	ina = gna*(v - ena)
    	gk = gkbar*n*n
 	akif = kifa*kifa*kifa*kifa*kifi

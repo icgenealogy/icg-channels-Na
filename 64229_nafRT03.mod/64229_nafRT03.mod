@@ -11,7 +11,7 @@ ASSIGNED {
 
 PARAMETER {
 	:erev 		= 50    (mV)
-	gbar 		= 0.4  (S/cm2)
+	gmax 		= 0.4  (S/cm2)
         vrest           = 0    (mV)
 
 	mvhalf 		= 34.5 : 38.0

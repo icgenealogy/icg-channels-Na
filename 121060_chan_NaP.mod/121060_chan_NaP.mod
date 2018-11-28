@@ -8,11 +8,11 @@ UNITS {
 NEURON {
         SUFFIX NaP
         USEION na READ ena WRITE ina
-        RANGE  gbar, ina
+        RANGE  gmax, ina
 }
  
 PARAMETER {
-	gbar   =   1.3802e-7 (S/cm2)	: 4e-5 in soma; 1.3802e-7 in dends
+	gmax   =   1.3802e-7 (S/cm2)	: 4e-5 in soma; 1.3802e-7 in dends
 
 	mvhalf = -52.6		(mV)	: Magistretti 1999, Fig 4
 	mslope = -4.6		(mV)	: Magistretti 1999, Fig 4
@@ -37,7 +37,7 @@ ASSIGNED {
  
 BREAKPOINT {
         SOLVE state METHOD cnexp
-        g = gbar * m * h  
+        g = gmax * m * h  
         ina = g * ( v - ena )
 :        VERBATIM
 :        	printf("Ena is %g\n", ena);

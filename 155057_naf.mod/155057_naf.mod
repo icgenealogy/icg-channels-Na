@@ -4,7 +4,7 @@
 NEURON {
 	SUFFIX Naf
 	USEION na READ ena WRITE ina
-	RANGE gbar, ina, gna
+	RANGE gnafbar, ina, gna
 }
 
 UNITS {
@@ -18,7 +18,7 @@ INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 PARAMETER {
 	v (mV)
 	dt (ms)
-	gbar= 0.086 (mho/cm2) <0,1e9>
+	gnafbar= 0.086 (mho/cm2) <0,1e9>
 	ena = 55 (mV)
 
 }
@@ -44,7 +44,7 @@ INITIAL {
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	gna = gbar*m*m*m*h
+	gna = gnafbar*m*m*m*h
 	ina = gna*(v-55)
 	
 }

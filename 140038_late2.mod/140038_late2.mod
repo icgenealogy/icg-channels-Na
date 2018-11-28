@@ -9,12 +9,12 @@ UNITS {
 NEURON {
         SUFFIX ls :'l' for late, 's' for sodium    
         USEION na READ ena WRITE ina
-        RANGE gbar, gna, ina
+        RANGE gnabar, gna, ina
         GLOBAL minf, hinf, htau
 }
  
 PARAMETER {
-        gbar = 1.0 (S/cm2)	<0,1e9>              
+        gnabar = 1.0 (S/cm2)	<0,1e9>              
 }
  
 STATE {
@@ -38,7 +38,7 @@ LOCAL mexp, hexp
 BREAKPOINT {
         SOLVE states METHOD cnexp
         m = minf
-        gna = gbar*m*h
+        gna = gnabar*m*h
 	ina = gna*(v - ena)	
 }
  

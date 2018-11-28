@@ -11,7 +11,7 @@ NEURON {
 	SUFFIX na_VCN2003
 	USEION na READ ena WRITE ina
 	NONSPECIFIC_CURRENT il
-	RANGE gbar 
+	RANGE gnabar 
 	RANGE m_inf,h_inf
 	RANGE tau_m,tau_h
 	RANGE m_exp,h_exp
@@ -27,7 +27,7 @@ UNITS {
 }
 
 PARAMETER {
-	gbar	= 0.2	(mho/cm2) 
+	gnabar	= 0.2	(mho/cm2) 
 	:ena=55		(mV) 
 	gl= 4.0e-4	(mho/cm2)   
         el=-57		(mV)
@@ -59,7 +59,7 @@ ASSIGNED {
 
 BREAKPOINT {
 	SOLVE states
-	gna=gbar * m*m*h
+	gna=gnabar * m*m*h
 	ina  = gna * (v - ena)
 	il=gl*(v-el)
 }

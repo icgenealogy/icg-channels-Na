@@ -36,7 +36,7 @@ STATE {
 BREAKPOINT { 
 	SOLVE states METHOD cnexp
 	gna = gbar * m
-	ina = 1*gna * ( v - ena ) 
+	ina = (1e-4)*gna * ( v - ena ) 
 } 
 
 INITIAL { 

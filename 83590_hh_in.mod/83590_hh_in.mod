@@ -8,7 +8,7 @@ sodium inactivation, as reported by Miles et al., 2005.
 
 PARAMETERS
 
- gbar = .12   (S/cm2)    : maximal conductance for the sodium current.
+ gnabar = .12   (S/cm2)    : maximal conductance for the sodium current.
  gkbar  = .036  (S/cm2)    : maximal conductance for the potassium current.
  gl     = .0003 (S/cm2)    : leak-current conductance.
  el     = -54.  (mV)       : reversal potential of the leak-current.
@@ -40,12 +40,12 @@ NEURON {
         USEION na READ ena WRITE ina
         USEION k READ ek WRITE ik
         NONSPECIFIC_CURRENT il
-        RANGE gbar, gkbar, gl, el, gna, gk, a
+        RANGE gnabar, gkbar, gl, el, gna, gk, a
         GLOBAL minf, hinf, ninf, sinf, mtau, htau, stau, ntau
 }
  
 PARAMETER {
-        gbar = .12   (S/cm2)    <0,1e9>
+        gnabar = .12   (S/cm2)    <0,1e9>
         gkbar  = 0.0  (S/cm2)    <0,1e9>
         gl     = 0.0  (S/cm2)    <0,1e9>
         el     = -54.  (mV)
@@ -76,7 +76,7 @@ ASSIGNED {
 ? currents
 BREAKPOINT {
         SOLVE states METHOD cnexp
-        gna = gbar*m*m*m*h*s
+        gna = gnabar*m*m*m*h*s
         ina = gna*(v - ena)
         gk = gkbar*n*n*n*n
         ik = gk*(v - ek)      

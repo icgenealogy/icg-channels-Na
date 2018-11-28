@@ -28,7 +28,7 @@ NEURON {
         SUFFIX na
 :        USEION na READ ena WRITE ina
         USEION na WRITE ina
-        RANGE gbar, gna, ina
+        RANGE gnabar, gna, ina
         GLOBAL hinf, minf, htau, mtau
 	RANGE ena
 }
@@ -40,7 +40,7 @@ PARAMETER {
         celsius = 22 (degC)  : model is defined on measurements made at room temp in Baltimore
         dt (ms)
         ena (mV)
-        gbar =  0.07958 (mho/cm2) <0,1e9>
+        gnabar =  0.07958 (mho/cm2) <0,1e9>
 }
 
 STATE {
@@ -59,7 +59,7 @@ LOCAL mexp, hexp
 BREAKPOINT {
 	SOLVE states
     
-    gna = gbar*(m^3)*h
+    gna = gnabar*(m^3)*h
     ina = gna*(v - ena)
 
 }
